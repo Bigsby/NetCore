@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>NetCore by Bigsby - Opening cross-platfomr project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/prism.css">
+    <script src="../scripts/prism.js"></script>
+</head>
+
+<body>
+    <section class="page-header">
+        <h1 class="project-name">NetCore</h1>
+        <h2 class="project-tagline">Testing cross-platform of .Net Core</h2>
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+
+    <section class="main-content">
+        <h1>Open shared (cross) project</h1>
+
+        <p>In the previuos step, you might have noticed a folder called "consoleApp" exists in the repository. This is .Net Core Console application project, just like the one created before in these series, but created by me as myself in my physical machine.</p>
+
+        <p>Let's open it in Visual Studio Code.</p>
+        <ol type="I">
+            <li>
+                <h4>Navigate to the folder</h4>
+                <p>In the CLI:</p>
+                <pre><code class="language-bash">$ cd consoleApp</code></pre>
+            </li>
+            <li>
+                <h4>Restore .Net parckages</h4>
+                <p>Still, in the CLI</p>
+                <pre><code class="language-bash">$ dotnet restore</code></pre>
+                <p>That should output something like this:</p>
+                <pre>
+log  : Restoring packages for C:\Git\NetCore\consoleApp\project.json...
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.netcore.dotnethostresolver/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.netcore.dotnethostresolver/index.json 406ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.netcore.dotnethost/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.netcore.dotnethost/index.json 410ms
+info : Committing restore...
+log  : Writing lock file to disk. Path: C:\Git\NetCore\consoleApp\project.lock.json
+log  : C:\Git\NetCore\consoleApp\project.json
+log  : Restore completed in 5052ms.
+NuGet Config files used:
+    C:\Users\Bigsby Gates\AppData\Roaming\NuGet\NuGet.Config
+Feeds used:
+    https://api.nuget.org/v3/index.json
+              </pre>
+                <p>The main purpose of this exercise is to create the "project.lock.json" file that VS Code needs to debug the project.</p>
+            </li>
+            <li>
+                <h4>Open Visual Studio</h4>
+                <p>Just like before, to open a folder in Visual Studio Code, in the CLI:</p>
+                <pre><code class="language-bash">$ code .</code></pre>
+            </li>
+            <li>
+                <h4>Run the project</h4>
+                <p>Hit F5. The Debug Console, should display something like this:</p>
+                <pre>
+Hello World, I was created by my father, Bigsby, in an unidentified evironment!
+The program 'c:\Git\NetCore\consoleApp\bin\Debug\netcoreapp1.0\consoleApp.dll' has exited with code 0 (0x00000000).
+              </pre>
+            </li>
+        </ol>
+
+        <a href="../index.html#changeCommit"><h3>Next -> Make changes and Commit</h3></a>
+    </section>
+
+    <section class="page-header">
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+</body>
+</html>

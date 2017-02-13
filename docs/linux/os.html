@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>NetCore by Bigsby - Installing Linux (Debian)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/prism.css">
+    <script src="../scripts/prism.js"></script>
+</head>
+<body>
+    <section class="page-header">
+        <h1 class="project-name">NetCore</h1>
+        <h2 class="project-tagline">Testing cross-platform of .Net Core</h2>
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+
+    <section class="main-content">
+        <h1>Installing Linux (Debian)</h1>
+
+        <p>For Linux I chose Debian because it's a clean distro with just what is needed for this project.</p>
+
+        <p>The steps:</p>
+
+        <ol>
+            <li>
+                <h3>Download ISO</h3>
+                <p>Download selected version from <a href="https://www.debian.org/CD/http-ftp/" target="_blank">here</a>. <b>"stable" amd64 network install</b> version is used in this series.</p>
+            </li>
+            <li>
+                <h3>Mount ISO on machine</h3>
+                <p>In this series, a Virtual Machine is being used.</p>
+            </li>
+            <li>
+                <h3>Install the Operating System</h3>
+                <p>There are a series of options taken here that are, by no means mandatory, but more of a personal preference.</p>
+                <p>Here are the steps followed in this series:</p>
+                <ol type="I">
+                    <li>
+                        <h4>Select install type</h4>Graphical Install
+                        <img src="../images/debian/os/01type.png" />
+                    </li>
+                    <li>
+                        <h4>Select a Language</h4> English (for this series)
+                        <img src="../images/debian/os/02language.png" />
+                    </li>
+                    <li>
+                        <h4>Select your location</h4> (any)
+                        <img src="../images/debian/os/03location.png" />
+                    </li>
+                    <li>
+                        <h4>Configure the keyboard</h4> (any)
+                        <img src="../images/debian/os/04keyboard.png" />
+
+                        <hr />
+                        <p>Here, there is some processing made by the installer...</p>
+                        <hr />
+                    </li>
+
+                    <li>
+                        <h4>Input hostname</h4> (any)
+                        <img src="../images/debian/os/05hostname.png" />
+                    </li>
+                    <li>
+                        <h4>Input domain</h4> (any)
+                        <img src="../images/debian/os/06domain.png" />
+                    </li>
+
+                    <li>
+                        <h4>Input root password</h4> (any)
+                        <p>This is the password needed to perform administrative tasks that require elevated permissions</p>
+                        <img src="../images/debian/os/07rootpassword.png" />
+                    </li>
+                    <li>
+                        <h4>Input user full name</h4> (any)
+                        <img src="../images/debian/os/08fullname.png" />
+                    </li>
+                    <li>
+                        <h4>Input username</h4> (any)
+                        <img src="../images/debian/os/09username.png" />
+                    </li>
+                    <li>
+                        <h4>Input password</h4> (any)
+                        <p>The password used to login the user session</p>
+                        <img src="../images/debian/os/10password.png" />
+
+                        <hr />
+                        <p>Here there is a little more preccessing...</p>
+                        <hr />
+                    </li>
+
+                    <li>
+                        <h4>Select partitioning method</h4> Guided - use entire disk
+                        <img src="../images/debian/os/11partitioningmethod.png" />
+                    </li>
+
+                    <li>
+                        <h4>Select disk to partition</h4> (existing disk)
+                        <img src="../images/debian/os/12disk.png" />
+                    </li>
+                    <li>
+                        <h4>Confirm partition configurations</h4>>
+                        <img src="../images/debian/os/13confirmpartitioning.png" />
+                    </li>
+                    <li>
+                        <h4>Select partitioning scheme</h4> All files in one partition (recommended for new users)
+                        <img src="../images/debian/os/14partitioningscheme.png" />
+                    </li>
+                    <li>
+                        <h4>Confirm partitioning</h4>>
+                        <img src="../images/debian/os/15confirmpartitioning2.png" />
+                        <hr />
+                        <p>Here there is a little more preccessing...</p>
+                        <hr />
+                    </li>
+
+                    <li>
+                        <h4>Select mirror coutry</h4> (any)
+                        <p>Choose the one closer to you geographically</p>
+                        <img src="../images/debian/os/17mirrorcountry.png" />
+                    </li>
+                    <li>
+                        <h4>Select archive mirror</h4> (any)
+                        <img src="../images/debian/os/18archivemirror.png" />
+                    </li>
+
+                    <li>
+                        <h4>Input HTTP proxy</h4> (any)
+                        <img src="../images/debian/os/20proxy.png" />
+                        <hr />
+                        <p>Here there is a little more preccessing...</p>
+                        <hr />
+                    </li>
+
+                    <li>
+                        <h4>Opt in or out of usage survey</h4>>
+                        <img src="../images/debian/os/21survey.png" />
+                    </li>
+                    <li>
+                        <h4>Choose software to install</h4>
+                        <p>
+                            For everything in this series, only the default selection is needed, excluding "print server". Any feature needed can be installed as easily afterwards.
+                            <img src="../images/debian/os/22selectsoftware.png" />
+                    </li>
+
+
+                    <li>
+                        <hr />
+                        <h4>And the actual installation takes place...</h4>
+                        <img src="../images/debian/os/23installsoftware.png" />
+                        <hr />
+                    </li>
+
+
+                    <li>
+                        <h4>Opt in or out of GRUB</h4> (any)
+                        <p>(It might be useful)</p>
+                        <img src="../images/debian/os/24grub.png" />
+                    </li>
+                    <li>
+                        <h4>Select GRUB location</h4>
+                        <p>If "yes" selected in the previous step</p>
+                        <img src="../images/debian/os/25grublocation.png" />
+                    </li>
+                    <li>
+                        <h4>Installation complete. FINALLY!!!</h4>
+                        <img src="../images/debian/os/26installationcomplete.png" />
+                        <hr />
+                        <p>The machine restarts...</p>
+                        <hr />
+                    </li>
+
+                    <li>
+                        <h4>...the lock screen...</h4>
+                        <img src="../images/debian/os/27lockscreen.png" />
+                    </li>
+                    <li>
+                        <h4>Input the password</h4>
+                        <p>...for the user session input before (not the root one)</p>
+                        <img src="../images/debian/os/28login.png" />
+                    </li>
+                    <li>
+                        <h3>And we're in!</h3>
+                        <img src="../images/debian/os/29loggedin.png" />
+                    </li>
+                    <li>
+                        <h3>Final touches</h3>
+                        <p>As adminstrative task, mainly installations, are going to be performed in this series, we might as well, allow our user to do so, instead of always logging as the root user.</p>
+                        <p>For that, we must:</p>
+                        <ol type="i">
+                            <li>
+                                <h4>Log as <b>root</b></h4>
+                                <pre><code class="language-bash">$ su -</code></pre>
+                                <p>And the password for the root is required</p>
+                                <pre>Password:</pre>
+                            </li>
+                            <li>
+                                <h4>Install <b>sudo</b></h4>
+                                <p><b>sudo</b> stands for Super User Do</p>
+                                <pre><code clas="language-bash"># apt-get install sudo</code></pre>
+                                <p>The output should look something like this:</p>
+                                <pre>
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  sudo
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 855 kB of archives.
+After this operation, 2,390 kB of additional disk space will be used.
+Get:1 http://ftp.ie.debian.org/debian/ jessie/main sudo amd64 1.8.10p3-1+deb8u3 [855 kB]
+Fetched 855 kB in 0s (1,335 kB/s)
+Selecting previously unselected package sudo.
+(Reading database ... 136754 files and directories currently installed.)
+Preparing to unpack .../sudo_1.8.10p3-1+deb8u3_amd64.deb ...
+Unpacking sudo (1.8.10p3-1+deb8u3) ...
+Processing triggers for man-db (2.7.0.2-5) ...
+Processing triggers for systemd (215-17+deb8u4) ...
+Setting up sudo (1.8.10p3-1+deb8u3) ...
+Processing triggers for systemd (215-17+deb8u4) ...</pre>
+                            </li>
+                            <li>
+                                <h4>Add user to sudoers group</h4>
+                                <pre><code class="language-bash"># sudo adduser bigsby sudo</code></pre>
+                                <p>This should have an outpug like this:</p>
+                                <pre>
+Adding user `bigsby' to group `sudo' ...
+Adding user bigsby to group sudo</pre>
+                                <p>For this change to have effect, the user session has to be restarted so, log out and log in again</p>
+                                <p>The first time a <b>sudo</b> call is made with the user a message like this should be displayed:</p>
+                                <pre>
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+[sudo] password for bigsby:</pre>
+                            </li>
+
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+        <a href="../index.html#netCore"><h3>Next -> Install .Net Core</h3></a>
+    </section>
+
+    <section class="page-header">
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+</body>
+</html>

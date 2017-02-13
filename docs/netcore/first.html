@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>NetCore by Bigsby - First .Net Core App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/prism.css">
+    <script src="../scripts/prism.js"></script>
+</head>
+
+<body>
+    <section class="page-header">
+        <h1 class="project-name">NetCore</h1>
+        <h2 class="project-tagline">Testing cross-platform of .Net Core</h2>
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+
+    <section class="main-content">
+        <h1>Creating first .Net Core application</h1>
+
+        <p>After installing .Net Core, creating a .Net Core application, from the command line, is exactly the same.</p>
+        <p>The steps to do so:</p>
+        <ol>
+            <li>
+                <h4>Create a foldder</h4>
+                <pre><code class="language-bash">> mkdir FirstNetCore</code></pre>
+            </li>
+
+            <li>
+                <h4>Move into the folder</h4>
+                <pre><code class="language-bash">> cd FirstNetCore</code></pre>
+            </li>
+
+            <li>
+                <h4>Create the project</h4>
+                <pre><code class="language-bash">> dotnet new</code></pre>
+                <p>This will produce an output like so:</p>
+                <pre>Created new C# project in ...\FirstNetCore.</pre>
+                <p>Looking into the folder, one finds two files were created:</p>
+                <ul>
+                    <li>
+                        <b>Programs.cs</b> - the program code that looks like this:
+                        <pre class="line-numbers"><code class="language-csharp">using System;
+namespace ConsoleApplication
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}                 </code></pre>
+                    </li>
+                    <li>
+                        <b>project.json</b> - the project definition that looks like this:
+                        <pre><code class="language-json">{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.0-rc2-3002702"
+    }
+  },
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  }
+}                 </code></pre>
+                        <p>Notice that that is no reference to <b>Programs.cs</b> file <b>project.json</b>. This is because, in the new era of Microsoft projects, it's assumed that all files in the project file's folder and its sub-folders are included in the project. Files can be excluded, but that's for later on...
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <h4>Get project dependecies</h4>
+                <p>
+                    The project definition, in <b>project.json</b>> file just generated, references, in this case only, one dependency, that needs to be retrieved. For that:
+                    <pre><code class="language-bash">> dotnet restore</code></pre>
+                <p>This should have an output similar to the one found <a href="firstdotnetrestoredump.txt" target="_blank">here</a>.</p>
+            </li>
+
+            <li>
+                <h4>Build the project</h4>
+                <p>This step is optional because the next step will build if build wasn't been done before. To build:</p>
+                <pre><code class="language-bash">> dotnet build</code></pre>
+                <p>That should have an output similar to this:</p>
+                <pre>
+Project FirstNetCore (.NETCoreApp,Version=v1.0) will be compiled because expected outputs are missing    
+Compiling FirstNetCore for .NETCoreApp,Version=v1.0                                                      
+                                                                                                         
+Compilation succeeded.                                                                                   
+    0 Warning(s)                                                                                         
+    0 Error(s)                                                                                           
+                                                                                                         
+Time elapsed 00:00:01.7172506
+              </pre>
+            </li>
+
+            <li>
+                <h4>Run the application</h4>
+                <p>Still in the command line</p>>
+                <pre><code class="language-bash">> dotnet run</code></pre>
+                <p>That should have an output similar to this if the previous step (build) was performed:</p>
+                <pre>
+Project FisrtNetCore (.NETCoreApp,Version=v1.0) was previously compiled. Skipping compilation.
+Hello World!
+              </pre>
+                <p>And an output similar to this if previous step (build) was skipped:</p>
+                <pre>
+Project FirstNetCore (.NETCoreApp,Version=v1.0) will be compiled because expected outputs are missing    
+Compiling FirstNetCore for .NETCoreApp,Version=v1.0                                                      
+                                                                                                         
+Compilation succeeded.                                                                                   
+    0 Warning(s)                                                                                         
+    0 Error(s)                                                                                           
+                                                                                                         
+Time elapsed 00:00:01.7172506                                                                            
+                                                                                                         
+                                                                                                         
+Hello World!                                                                                             
+              </pre>
+            </li>
+        </ol>
+
+        <a href="../index.html#visualStudioCode"><h3>Next -> Installing Visual Studio Code</h3></a>
+    </section>
+
+    <section class="page-header">
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+</body>
+</html>

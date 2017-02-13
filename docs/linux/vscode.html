@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>NetCore by Bigsby - Install Visual Studio Code on Linux (Debian)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/prism.css">
+    <script src="../scripts/prism.js"></script>
+</head>
+<body>
+    <section class="page-header">
+        <h1 class="project-name">NetCore</h1>
+        <h2 class="project-tagline">Testing cross-platform of .Net Core</h2>
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+
+    <section class="main-content">
+        <h1>Installing Visual Studio Code on Linux (Debian)</h1>
+
+        <ol>
+            <li>
+                <h3>Download packgage</h3>
+                <p>Go to <a href="https://code.visualstudio.com">Visual Studio Code web site</a> and click ".deb" button.</p>
+                <p>If ".deb" button doesn't show in big on the left of the page navigate to the bottom that has all platform download buttons</p>
+            </li>
+            <li>
+                <h3>Install package</h3>
+                <ol type="I">
+                    <li>
+                        <p>Go to the terminal and navigate to the folder where the package was downloaded to.</p>
+                        <pre><code class="language-bash">$ cd Downloads</code></pre>
+                    </li>
+                    <li>
+                        <p>Call Debian Package to install package</p>
+                        <pre><code class="language-bash">$ sudo dpkg -i vscode-amd64.deb</code></pre>
+                        <p>This should have the following output:</p>
+                        <pre>
+Selecting previously unselected package visual-studio-code.
+(Reading database ... 137182 files and directories currently installed.)
+Preparing to unpack vscode-amd64.deb ...
+Unpacking visual-studio-code (1.1.1-1463146452) ...
+dpkg: dependency problems prevent configuration of visual-studio-code:
+ visual-studio-code depends on git; however:
+  Package git is not installed.
+  
+dpkg: error processing package visual-studio-code (--install):
+ dependency problems - leaving unconfigured
+Processing triggers for desktop-file-utils (0.22-1) ...
+Processing triggers for gnome-menus (3.13.3-6) ...
+Processing triggers for mime-support (3.58) ...
+Errors were encountered while processing:
+ visual-studio-code
+                </pre>
+                        <p>So it looks like there's a dependency on Git, so...</p>
+                    </li>
+                    <li>
+                        <p>Install Git</p>
+                        <pre><code class="language-bash">$ sudo apt-get install git</code></pre>
+                        <p>That should also "complaint" about dependencies but, this time, with instruction to solve all of them:</p>
+                        <pre>
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+You might want to run 'apt-get -f install' to correct these:
+The following packages have unmet dependencies:
+ git : Depends: liberror-perl but it is not going to be installed
+       Depends: git-man (> 1:2.1.4) but it is not going to be installed
+       Depends: git-man (< 1:2.1.4-.) but it is not going to be installed
+       Recommends: rsync but it is not going to be installed
+E: Unmet dependencies. Try 'apt-get -f install' with no packages (or specify a solution).
+                </pre>
+                        <p>Following the instructions...</p>
+                    </li>
+                    <li>
+                        <pre><code class="language-bash">$ sudo apt-get install -f</code></pre>
+                        <p>And the output (including the confirmation of the space taken on disk):</p>
+                        <pre>
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Correcting dependencies... Done
+The following extra packages will be installed:
+  git git-man liberror-perl rsync
+Suggested packages:
+  git-daemon-run git-daemon-sysvinit git-doc git-el git-email git-gui gitk
+  gitweb git-arch git-cvs git-mediawiki git-svn openssh-server
+The following NEW packages will be installed:
+  git git-man liberror-perl rsync
+0 upgraded, 4 newly installed, 0 to remove and 0 not upgraded.
+1 not fully installed or removed.
+Need to get 4,942 kB of archives.
+After this operation, 24.3 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://ftp.ie.debian.org/debian/ jessie/main liberror-perl all 0.17-1.1 [22.4 kB]
+Get:2 http://ftp.ie.debian.org/debian/ jessie/main git-man all 1:2.1.4-2.1+deb8u2 [1,267 kB]
+Get:3 http://ftp.ie.debian.org/debian/ jessie/main git amd64 1:2.1.4-2.1+deb8u2 [3,262 kB]
+Get:4 http://ftp.ie.debian.org/debian/ jessie/main rsync amd64 3.1.1-3 [390 kB]
+Fetched 4,942 kB in 1s (3,439 kB/s)
+Selecting previously unselected package liberror-perl.
+(Reading database ... 139631 files and directories currently installed.)
+Preparing to unpack .../liberror-perl_0.17-1.1_all.deb ...
+Unpacking liberror-perl (0.17-1.1) ...
+Selecting previously unselected package git-man.
+Preparing to unpack .../git-man_1%3a2.1.4-2.1+deb8u2_all.deb ...
+Unpacking git-man (1:2.1.4-2.1+deb8u2) ...
+Selecting previously unselected package git.
+Preparing to unpack .../git_1%3a2.1.4-2.1+deb8u2_amd64.deb ...
+Unpacking git (1:2.1.4-2.1+deb8u2) ...
+Selecting previously unselected package rsync.
+Preparing to unpack .../rsync_3.1.1-3_amd64.deb ...
+Unpacking rsync (3.1.1-3) ...
+Processing triggers for man-db (2.7.0.2-5) ...
+Processing triggers for systemd (215-17+deb8u4) ...
+Setting up liberror-perl (0.17-1.1) ...
+Setting up git-man (1:2.1.4-2.1+deb8u2) ...
+Setting up git (1:2.1.4-2.1+deb8u2) ...
+Setting up visual-studio-code (1.1.1-1463146452) ...
+Setting up rsync (3.1.1-3) ...
+Processing triggers for systemd (215-17+deb8u4) ...
+                </pre>
+                    </li>
+                    <p>Note: The output shows Visual Studio Code installation is resume after the dependencies are resolved</p>
+                </ol>
+
+                <h4>And we're done!</h4>
+                <img src="../images/debian/vscode/01done.PNG" />
+            </li>
+        </ol>
+        <a href="../index.html#debug"><h3>Next -> Installing Git</h3></a>
+    </section>
+
+    <section class="page-header">
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+</body>
+</html>

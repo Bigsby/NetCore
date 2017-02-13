@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NetCore by Bigsby - TypeScript in AstNet .Core Web Applicaiton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/prism.css">
+    <script src="../scripts/prism.js"></script>
+</head>
+
+<body>
+    <section class="page-header">
+        <h1 class="project-name">NetCore</h1>
+        <h2 class="project-tagline">Testing cross-platform of .Net Core</h2>
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+
+    <section class="main-content">
+        <h1>TypeScript</h1>
+
+        <p><a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>, as subtitled in its page, is a typed superset
+            of JavaScript that compiles to plain JavaScript. It allows strongly-safe-typed development for the client side
+            code.
+        </p>
+
+        <p>Browsers' DOM (Document Object Model) only understand JavaScript. JavaScript is a dynamic language and, as such,
+            gives one great freedom (leniency) but, with it, comes great responsibility and it's very easy for the language
+            to hide errors (bugs) that are very hard to find (debug) and resolve. TypeScript comes to the rescue by, at least,
+            mitigating this problems by strongly typing the code.</p>
+
+        <p><em>Visual Studo Code</em> suport <em>TypeScript</em> from day one. This suport is for the language in the IDE, i.e.,
+            privding intellisense and pre-compiling errros. But, as expressed before, the browsers don't understaund <em>TypeScript</em>>,
+            yet. <em>TypeScript</em> code needs to be compile to plain <em>JavaScript</em>. Having that in mind, let's, first,
+            make a simple <em>TypeScript</em> project, to have everything working before adding it to our Asp.Net Core Web
+            Application.
+        </p>
+
+        <ol>
+            <li>
+                <h3>Update <em>npm</em></h3>
+                <p><em>TypeScript</em> is installed as an <em>npm</em> component and it's good practise to always update <em>npm</em>                    before doing any install. To do so, run this command in the CLI:
+                </p>
+                <pre><code class="language-bash">$ npm install npm -g</code></pre>
+                <p>"-g" parameter means the install is to be scope globally, at least, at user level. For that reason, in Linux,
+                    there might be some permission issues and one should prefix the comand with "sudo".</p>
+                <p>The output diplays the version and the location of the install.</p>
+            </li>
+            <li>
+                <h3>Install <em>TypeScript</em> compiler</h3>
+                <p>To install <em>TypeScript</em> compiler run the following command in the CLI:</p>
+                <pre><code class="language-bash">$ npm install tsc -g</code></pre>
+                <p>The output diplays the version and the location of the install.</p>
+                <p>The installation can be confirmed by running:</p>
+                <pre><code class="language-bash">$ tsc --version</code></pre>
+                <p>That should output something like this:</p>
+                <pre>message TS6029: Version 1.5.3</pre>
+            </li>
+            <li>
+                <h3>Create folder</h3>
+                <p>As before, create the folder by running:</p>
+                <pre><code class="language-bash">$ mkdir typescript</code></pre>
+                <p>...and move to folder</p>
+                <pre><code class="language-bash">$ cd typescript</code></pre>
+            </li>
+            <li>
+                <h3>Open Visual Studio Code</h3>
+                <h3>Create folder</h3>
+                <p>As before, open VS Code in current folder by running:</p>
+                <pre><code class="language-bash">$ code .</code></pre>
+            </li>
+            <li>
+                <h3>Add tsconfig.json file</h3>
+                <p>Click the "New File" button and name the file, precisely, "tsconfig.json"</p>
+                <p>You'll notice VS Code knows this file because it immediately, provides intellisense.</p>
+                <img src="../images/web/06tsconfig.PNG" />
+                <p>Leave it blank, for now:</p>
+                <pre><code class="language-json">{
+}</code></pre>
+            </li>
+            <li>
+                <h3>Add .ts file</h3>
+                <p>For VS Code, a <em>TypeScript</em> file is one that has ".ts" as extension. Click the "New File" button and
+                    create a file called "app.ts"</p>
+                <p>VS Code, recognizes the file extension and provides <em>TypeScript</em> intellisense</p>
+                <img src="../images/web/07typescript.PNG" />
+            </li>
+            <li>
+                <h3>Add <em>TypeScript</em> code</h3>
+                <p>Add the follwing content to the file:</p>
+                <pre><code class="language-typescript">class Startup{
+    static main() :number{
+        console.log("In TypeScript!");
+        return 0;
+    }    
+}
+
+Startup.main();</code></pre>
+            </li>
+            <li>
+                <h3>Build the application</h3>
+                <p>Hit <kbd>Ctrl</kbd>+<kbd>Shit</kbd>+<kbd>B</kbd>. This message should display.</p>
+                <img src="../images/web/09typescriptbuild.PNG" />
+                <p>This happens because, unlike our previous projects where there was a <em>project.json</em> telling VS Code
+                    what kind of project it was and what the project needed to build and run, there is nothing to tell VS
+                    Code what to do to build.</p>
+                <p>Click "Configure Task Runner". This will show the follwing options:</p>
+                <img src="../images/web/10taskoptions.PNG" />
+                <p>Select "TypeScript - Watch Mode". This will create a file called <em>tasks.json</em> that lives in a folder
+                    VS Code creates in the project root called <em>.vscode</em>. If you look at our previous projects, you'll
+                    find this folder with <em>tasks.json</em> file in it (and another one we'll get to next). The generated
+                    should look like this:</p>
+                <pre><code class="language-json">{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "tsc",
+    "isShellCommand": true,
+    "args": ["-w", "-p", "."],
+    "showOutput": "silent",
+    "isWatching": true,
+    "problemMatcher": "$tsc-watch"
+}</code></pre>
+                <p>Build again by hitting <kbd>Ctrl</kbd>+<kbd>Shit</kbd>+<kbd>B</kbd> and the output should display something
+                    like this:</p>
+                <pre>message TS6042: Compilation complete. Watching for file changes.</pre>
+                <p>This message not only says the build was complete successfully but that <em>tsc</em> is watching for file
+                    changes and will recomplie the <em>TypeScript</em> contained in the project to <em>JavaScript</em> on
+                    every save.</p>
+                <p>One other thing that you might have noticed, is that a new file appeared:</p>
+                <img src="../images/web/11appjs.PNG" />
+                <p><em>app.js</em> is the result of compilation of <em>app.ts</em>. By default, <em>tsc</em> creates a file
+                    eith the same name with ".js" extension. It's content should look like this:</p>
+                <pre><code class="language-javascript">var Startup = (function () {
+    function Startup() {
+    }
+    Startup.main = function () {
+        console.log("In TypeScript!");
+        return 0;
+    };
+    return Startup;
+})();
+Startup.main();</code></pre>
+                <p>Note that this file is generated and it's content should not be tampered because:</p>
+                <ul>
+                    <li>Any changes will be overriden by a recompilation of the source <em>TypeScript</em> file;</li>
+                    <li>There will be no "manual" <em>JavaSCript</em> in these series.</li>
+                </ul>
+            </li>
+            <li>
+                <h3>Run the <em>TypeScript</em> Application</h3>
+                <p>Hit <kbd>F5</kbd>. It should display something like this:</p>
+                <img src="../images/web/08runtypescript.PNG" />
+                <p>At this moment, VS Code, doesn't know, yet, how to run the app. On the previous projects in these series,
+                    there was a <em>project.json</em> file that "told" VS Code what it was and, from that, VS Code create
+                    settings to run the app. This settings are stored in a file called <em>launch.json</em> that lives inside
+                    a folder VS Code creates called <em>.vscode</em>. You might have noticed this folder, and contained files,
+                    in the our previous projects.</p>
+                <p>As, for now, we want to run (and debug), <em>JavaScript</em>, let's choose "Node.js". This will make the
+                    app run under <em>NodeJS</em> runtime that is, basically, a <em>JavaSCript</em>. This will generate a
+                    <em>lauch.json</em> file with a content similiar or equal to this one:</p>
+                <pre><code class="language-json">{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/app.js",
+            "stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "externalConsole": false,
+            "sourceMaps": false,
+            "outDir": null
+        },
+        {
+            "name": "Attach",
+            "type": "node",
+            "request": "attach",
+            "port": 5858,
+            "address": "localhost",
+            "restart": false,
+            "sourceMaps": false,
+            "outDir": null,
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": null
+        }
+    ]
+}</code></pre>
+                <p>Note that <em>launch.json</em> template for <em>NodeJS</em> already points to <em>app.js</em> file as a starting
+                    point in "configurations.program" property</p>
+                <p>Running the application again should go display the message in the output window:</p>
+                <pre>In TypeScript!</pre>
+            </li>
+            <li>
+                <h3>Debug TypeScript</h3>
+                <p>As stated before, the browsers and <em>NodeJS</em>, don't know anything about <em>TypeScript</em>, they only
+                    understand <em>JavaScript</em>. To allow the debugger to debug <em>TypeScrip</em> there must be something
+                    that maps the generated <em>JavaScript</em> to the source <em>TypeScript</em> file. That is acomplished
+                    by:
+                </p>
+                <ol type="I">
+                    <li>
+                        <h4>Set compiler options</h4>
+                        <p>Change <em>tsconfig.json</em> to generate source mapping files by setting <em>compilerOptions.sourceMap</em>                            property to <em>true</em>. After doing so, <em>tsconfig.json</em> should look like this.</p>
+                        <pre><code class="language-json">{ 
+    "compilerOptions": {
+        "sourceMap": true 
+    }
+}</code></pre>
+                        <p>Bulding the project, by hitting <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>, a new file appears
+                            called <em>app.js.map</em> that tells the debugger to what statements in the <em>TypeScript<em> file the <em>JavaScript<em> file ones correspond too.</p>
+                    </li>
+                    <li>
+                        <h4>Set launch options</h4>
+                        <p>The launcher, that invokes the debugger, also needs to be told to look for source mapping files. That is accomplished by setting <em>sourceMaps</em>                            to <em>true</em>, in <em>launch.json</em> file, on the launch configuration being used. Afther
+                            that, the file should look like this:</p>
+                        <pre><code class="language-json">{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/app.js",
+            "stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "externalConsole": false,
+            "sourceMaps": true,
+            "outDir": null
+        },
+        {
+            "name": "Attach",
+            "type": "node",
+            "request": "attach",
+            "port": 5858,
+            "address": "localhost",
+            "restart": false,
+            "sourceMaps": false,
+            "outDir": null,
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": null
+        }
+    ]
+}</code></pre>
+                    </li>
+
+                    <li>
+                        <h4>Set a breakpoint</h4>
+                        <p>A break is set just like before in a <em>C#</em> file, by clicking on the left of the line number
+                            we want the debugger to stop execution in.</p>
+                        <img src="../images/web/13breakpoint.PNG" />
+                    </li>
+                    <li>
+                        <h4>Run the application</h4>
+                        <p>Hit <kbd>F5</kbd> and the breakpoint is hit.</p>
+                        <img src="../images/web/14debug.PNG" />
+                    </li>
+                </ol>
+            </li>
+
+            <li>
+                <h3>All <em>TypeScript</em></h3>
+                <p>Source mapping works both ways. This means that not only the debugger knows to what <em>JavaScript</em> statement being executed corresponds in <em>TypeScript</em> but also on launch. Since we're going <em>TypeScript</em> all the way, we can set our <em>TypeScript</em> file as the starting point. <em>launch.json</em> can look like this:</p>
+                <pre><code class="language-json">{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/app.ts",
+            "stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "externalConsole": false,
+            "sourceMaps": true,
+            "outDir": null
+        },
+        {
+            "name": "Attach",
+            "type": "node",
+            "request": "attach",
+            "port": 5858,
+            "address": "localhost",
+            "restart": false,
+            "sourceMaps": false,
+            "outDir": null,
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": null
+        }
+    ]
+}</code></pre>
+            </li>
+
+
+        </ol>
+
+        <a href="../index.html#angular2">
+            <h3>Next -> Add Angular 2 framework</h3>
+        </a>
+    </section>
+
+    <section class="page-header">
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+</body>
+
+</html>

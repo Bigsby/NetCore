@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>NetCore by Bigsby - Debugging an AstNet .Core Web Applicaiton in Visual Studio Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/prism.css">
+    <script src="../scripts/prism.js"></script>
+</head>
+
+<body>
+    <section class="page-header">
+        <h1 class="project-name">NetCore</h1>
+        <h2 class="project-tagline">Testing cross-platform of .Net Core</h2>
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+
+    <section class="main-content">
+        <h1>Opening and debugggin an ASP.Net Core application in Visual Studio Code</h1>
+
+        <p>By now, this should be a simple process and, in all, similar to what was follow for the console application.</p>
+        <ol type="i">
+            <li>
+                <h4>Open folder in VS Code</h4>
+                <p>In the CLI run</p>
+                <pre><code class="language-bash">$ code .</code></pre>
+            </li>
+            <li>
+                <h4>Install needed assets</h4>
+                <p>As before, VS Code needs some components to be able to run and debug the new type of project. Click "Yes"</p>
+                <img src="images/web/01required.PNG" />
+            </li>
+            <li>
+                <h4>Select Web Debug</h4>
+                <p>Go to the "Debug" tab, click the dropdown next to the green arrow and select ".Net Core Launch (web)"</p>
+                <img src="../images/web/02webdebug.PNG" />
+            </li>
+            <li>
+                <h4>Run the web application</h4>
+                <p>The default web browser should open in the same URL as before and display the same "Hello World!"</p>
+            </li>
+        </ol>
+       
+        <a href="../index.html#staticFiles"><h3>Next -> Add support for Static Files</h3></a>
+    </section>
+
+    <section class="page-header">
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+</body>
+</html>

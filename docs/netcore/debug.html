@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>NetCore by Bigsby - Debugging .Net Core in Visual Studio Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/prism.css">
+    <script src="../scripts/prism.js"></script>
+</head>
+
+<body>
+    <section class="page-header">
+        <h1 class="project-name">NetCore</h1>
+        <h2 class="project-tagline">Testing cross-platform of .Net Core</h2>
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+
+    <section class="main-content">
+        <h1>Debugging in Visual Studio Code</h1>
+
+        <ol>
+            <li>
+                <h4>Open the CLI (Command Line Interface)</h4>
+                <p>Terminal on Linux and Mac OS X; Command Prompt (cmd) on Windows</p>
+            </li>
+            <li>
+                <h4>Navigate to the project's folder</h4>
+                <p>For instance, the one created <a href="#createNetCoreApplication">previously</a>.</p>
+                <pre><code class="language-bash">$ cd firstnetcore</code></pre>
+            </li>
+            <li>
+                <h4>Open Visual Studio Code</h4>
+                <p>To open the project in Visual Studio code one only has to do this:</p>
+                <pre><code class="language-bash">$ code .</code></pre>
+                <p>This will open Visual Studio Code in the current folder</p>
+            </li>
+            <li>
+                <h4>Install OmniSharp</h4>
+                <p>Visual Studio Code doesn't support C# out-of-the-box. This means, there is no <a href="https://msdn.microsoft.com/en-us/library/hcw1s69b.aspx">intellisense</a>, language syntax highlight or warnings in the IDE (Integrated Development Environment). </p>
+                <img src="../images/vscode/01noomnisharp.PNG" />
+                <p>C# support comes through an extension called using <a href="http://www.omnisharp.net/">Omnisharp</a>. To install it:</p>
+                <ol type="I">
+                    <li>
+                        <p>Click "F1" to open the Command Pallete</p>
+                        <img src="../images/vscode/03commandpallete.PNG" />
+                    </li>
+                    <li>
+                        <p>Write "ext inst" and select "Extensions: Install Extension" from the dropdown.</p>
+                        <img src="../images/vscode/02extinst.PNG" />
+                    </li>
+                    <li>
+                        <p>Select "C#"</p>
+                        <img src="../images/vscode/04omnisharp.PNG" />
+                    </li>
+                    <li>
+                        <p>Wait for the installation to complete and click "Restart Now" when this message shows:</p>
+                        <img src="../images/vscode/05omnisharprestart.PNG" />
+
+                        <p>After restart, the C# file is recognized and "understood":</p>
+                        <img src="../images/vscode/06omnisharpintellisense.PNG" />
+                        <p>Note the "C#" on the status bar in the bottom right, indicating the file type is recognized (by the .cs file extension).</p>
+                    </li>
+
+                    <li>
+                        <p>In the meantime, Visual Studio code is analysing the project type and it's components and installing missing components in the background, namely and most importantly, the .Net Core Debugger. A message like this will show in the status bar:</p>
+                        <img src="../images/vscode/065installingdotdebugger.PNG" />
+                        <p>And, sooner or later, this one:</p>
+                        <img src="../images/vscode/08coredebuggerinstalled.PNG" />
+                        <p>This one might also show:</p>
+                        <img src="../images/vscode/07requiredfordebug.PNG" />
+                        <p>Click "Yes".</p>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <h4>Run the project</h4>
+                <p>Go to the debug tab</p>
+                <img src="../images/vscode/09debugtab.PNG" />
+                <p>Click the Debug button</p>
+                <img src="../images/vscode/10debugbutton.PNG" />
+                <p>Alternatively, press F5</p>
+                <p>The project will run but, in the Debug Console, a warning message is displayed stating:</p>
+                <pre>
+WARNING: Could not load symbols for 'FirstNetCore.dll'. 'c:\NetCore\FirstNetCore\bin\Debug\netcoreapp1.0\FirstNetCore.pdb' is a Windows PDB. These are not supported by the cross-platform .NET Core debugger.
+Hello World!
+The program 'c:\NetCore\FirstNetCore\bin\Debug\netcoreapp1.0\FirstNetCore.dll' has exited with code 0 (0x00000000).</pre>
+            </li>
+
+            <li>
+                <h4>Set debug as Portable</h4>
+                <ol type="I">
+                    <li>
+                        <p>Go to the Explorer tab</p>
+                        <img src="../images/vscode/12explorer.PNG" />
+                    </li>
+                    <li>
+                        <p>Open "project.json" file</p>
+                    </li>
+                    <li>
+                        <p>Set buildOptions.debugType to "portable" (intellisense should help)</p>
+
+                        <p>"project.json" should look like this, in the end:</p>
+                        <pre><code class="language-json">
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true,
+    "debugType": "portable"
+  },
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.0-rc2-3002702"
+    }
+  },
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  }
+}</code></pre>
+                    </li>
+
+                </ol>
+            </li>
+            <li>
+                <h4>Set a breakpoint</h4>
+                <p>Go to "Program.cs" file and click on left of the line number where the execution is supposed to break.</p>
+                <img src="../images/vscode/11breakpoint.PNG" />
+                <p>Alternatively, press F9 when the intended line has the focus caret.</p>
+            </li>
+            <li>
+                <h4>Debug</h4>
+                <p>Hit F5 and the breakpoint should be hit, i.e., the programs will stop on that line's execution:</p>
+                <img src="../images/vscode/13debug.PNG" />
+            </li>
+        </ol>
+
+        <a href="../index.html#github"><h3>Next -> Clone the GitHub Repository</h3></a>
+    </section>
+
+    <section class="page-header">
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+</body>
+</html>

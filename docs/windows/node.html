@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>NetCore by Bigsby - Install NodeJS on Windows</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/prism.css">
+    <script src="../scripts/prism.js"></script>
+  </head>
+  
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">NetCore</h1>
+      <h2 class="project-tagline">Testing cross-platform of .Net Core</h2>
+      <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+
+    <section class="main-content">
+        <h1>Installing NodeJS on Windows</h1>
+        <ol>
+          <li>
+            <h3>Download the installer</h3>
+            <p>Go to <a href="https://nodejs.org/">NodeJS web site</a> and click the left button, the one that says LTS (Long-Term Support).</p>
+          </li>
+          <li>
+            <h3>Run the installer</h3>
+            <p>The package will be downloaded through the Mac OS download manager. Double-click on it.</p>
+            <ol type="I">
+                <li>
+                    <h4>Welcome</h4>
+                    <p>Click "Next"</p>
+                    <img src="../images/windows/node/01welcome.PNG"/>
+                </li>
+                <li>
+                    <h4>License</h4>
+                    <p>Check "I accept the terms in the License Agreement" and click "Next"</p>
+                    <img src="../images/windows/node/02license.PNG"/>
+                </li>
+                <li>
+                    <h4>Installation Location</h4>
+                    <p>Select the Installation Locaiton and click "Next"</p>
+                    <img src="../images/windows/node/03location.PNG"/>
+                </li>
+                <li>
+                    <h4>Setup</h4>
+                    <p>Click "Next"</p>
+                    <img src="../images/windows/node/04setup.PNG"/>
+                    <p>It is very important to have "npm package manager" selected to be installed as all in "Add to PATH". This will be very useful later on.</p>
+                </li>
+                <li>
+                    <h4>Install</h4>
+                    <p>Click "Install"</p>
+                    <img src="../images/windows/node/05install.PNG"/>
+                </li>
+                <li>
+                    <h4>Allow changes</h4>
+                    <p>Click "Yes"</p>
+                    <img src="../images/windows/node/06allow.PNG"/>
+                </li>
+                <h4>The actual installation takes place...</h4>
+                <img src="../images/windows/node/07installing.PNG"/>
+                <li>
+                    <h4>And we're done!</h4>
+                    <p>Click "Finish"</p>
+                    <img src="../images/windows/node/01welcome.PNG"/>
+                </li>
+            </ol>
+          </li>
+          
+          <li>
+              <h3>Confirm installation</h3>
+              <p>Go to the Command Prompt and type:</p>
+              <pre><code class="language-bash">> node -v</code></pre>
+              <p>The output should be something like this:</p>
+              <pre>v4.4.5</pre>
+              <p>Also test npm is installed because it's a key component. Type:</p>
+              <pre><code class="language-bash">> npm -v</code></pre>
+              <p>The output should be something like this:</p>
+              <pre>2.15.5</pre>
+          </li>
+        </ol>
+        
+        <a href="../index.html#debug"><h3>Next -> Debugging in Visual Studio Code</h3></a>
+    </section>
+
+    <section class="page-header">
+        <a href="../index.html" class="btn">Home of Series</a>
+    </section>
+  </body>
+</html>
