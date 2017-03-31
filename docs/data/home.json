@@ -1,6 +1,5 @@
 {
-    "oss": [
-        {
+    "oss": [{
             "name": "Windows (10)",
             "link": "https://www.microsoft.com/en-us/software-download/windows10/"
         },
@@ -14,11 +13,9 @@
         }
     ],
     "technologies": {
-        "categories": [
-            {
+        "categories": [{
                 "name": "Coding",
-                "items": [
-                    {
+                "items": [{
                         "name": "Visual Studio Code",
                         "link": "https://code.visualstudio.com",
                         "description": "the IDE"
@@ -37,8 +34,7 @@
             },
             {
                 "name": "Server (backend)",
-                "items": [
-                    {
+                "items": [{
                         "name": ".Net Core",
                         "link": "https://www.microsoft.com/net/core",
                         "description": "the framework"
@@ -62,8 +58,7 @@
             },
             {
                 "name": "Client (frontend)",
-                "items": [
-                    {
+                "items": [{
                         "name": "NodeJS",
                         "link": "https://nodejs.org",
                         "description": "the client side compiling framework"
@@ -97,7 +92,20 @@
             }
         ]
     },
-    "steps":[
-        
-    ]
+    "steps": [{
+        "id": "operatingSystems",
+        "name": "Install Operatings System",
+        "text": "As expected, the process of installing the Operating Systems is different on each platform and, as such, is described in seperate:",
+        "step": "os",
+        "platforms": [{
+            "name": "Installing Windows",
+            "platform": "windows"
+        }, {
+            "name": "Installing Linux",
+            "platform": "linux"
+        }, {
+            "name": "Installing Mac OS X",
+            "platform": "mac"
+        }]
+    }]
 }

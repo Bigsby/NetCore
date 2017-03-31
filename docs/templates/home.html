@@ -5,21 +5,31 @@
     </li>
 </ul>
 
-<p>For that purpose, the process, frominstall to full production, will be described. What you see here
-    was added while following the described steps.</p>
+<p>For that purpose, the process, frominstall to full production, will be described. What you see here was added while following the described steps.</p>
 
 <p>The shared techologies and software to be used are:</p>
 <ul>
-   <li ng-repeat="category in $ctrl.technologies.categories">
-       <category category="category"></category>
-   </li>
+    <li ng-repeat="category in $ctrl.technologies.categories">
+        <category category="category"></category>
+    </li>
 </ul>
-<p>(...these are the ones, to be used, for sure. This list might grow upon usage)</p>
+<p>( ...these are the ones, to be used, for sure. This list might grow upon usage... )</p>
 
 <hr />
 
 <p>Here we go:</p>
 <ol>
+    <li id="{{step.id}}" ng-repeat="step in $ctrl.steps">
+        <h3>{{step.name}}</h3>
+        <p>{{step.text}}</p>
+        <ul ng-if="step.platforms">
+            <li ng-repeat="platform in step.platforms">
+                <a ng-click="$ctrl.go('step', { step: step.step, platform: platform.platform })">{{platform.name}}</a>
+            </li>
+        </ul>
+    </li>
+</ol>
+<!--<ol>
     <li id="operatingSystems">
         <h3>Install Operatings System</h3>
         <p>As expected, the process of installing the Operating Systems is different on each platform and, as such, is described
@@ -175,4 +185,4 @@
     <li id="angular2">
         <h3>Add Angular 2 framework</h3>
     </li>
-</ol>
+</ol>-->

@@ -1,0 +1,24 @@
+{
+    "go.gopath": "c:/go/bin",
+    "go.lintOnSave": false,
+    "go.vetOnSave": false,
+    "go.buildOnSave": false,
+    "go.formatOnSave": false,
+    "python.linting.pylintEnabled": false,
+    "python.formatting.provider": "yapf",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/*.exe": true,
+        "**/*.obj": true,
+        "**/*.class": true
+    },
+    "files.associations": {
+        "iostream": "cpp",
+        "xutility": "cpp",
+        "regex": "cpp",
+        "xlocale": "cpp"
+    }
+}
