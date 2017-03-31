@@ -1,36 +1,15 @@
-﻿<!DOCTYPE html>
-<html lang="en-us">
-<head>
-    <meta charset="UTF-8">
-    <title>NetCore by Bigsby - Install .Net Core on Mac</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/prism.css">
-    <script src="../scripts/prism.js"></script>
-</head>
+﻿<h1>Installing .Net Core on Mac OS X</h1>
 
-<body>
-    <section class="page-header">
-        <h1 class="project-name">NetCore</h1>
-        <h2 class="project-tagline">Testing cross-platform of .Net Core</h2>
-        <a href="../index.html" class="btn">Home of Series</a>
-    </section>
+<p>Here are the steps to install .Net Core in Mac OS X, as instructed in <a href="https://www.microsoft.com/net/core#macosx"
+        target="_blank">.Net Core web site</a></p>
 
-    <section class="main-content">
-        <h1>Installing .Net Core on Mac OS X</h1>
-
-        <p>Here are the steps to install .Net Core in Mac OS X, as instructed in <a href="https://www.microsoft.com/net/core#macosx" target="_blank">.Net Core web site</a></p>
-
-        <ol>
-            <li>
-                <h3>Install Homebrew</h3>
-                <p>As instructed in <a href="https://brew.sh/">Homebrew webiste</a>, run in the terminal:</p>
-                <pre><code class="language-bash">$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
-                <p>With the following output:</p>
-                <pre>
+<ol>
+    <li>
+        <h3>Install Homebrew</h3>
+        <p>As instructed in <a href="https://brew.sh/">Homebrew webiste</a>, run in the terminal:</p>
+        <pre><code class="language-bash">$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
+        <p>With the following output:</p>
+        <pre>
 ==> This script will install:
 /usr/local/bin/brew
 /usr/local/Library/...
@@ -52,8 +31,8 @@ typing when using sudo. Type "man sudo" for more information.
 To proceed, enter your password, or type Ctrl-C to abort.
 Password:
             </pre>
-                <p>Type in the password...and the installation continues...</p>
-                <pre>
+        <p>Type in the password...and the installation continues...</p>
+        <pre>
 ==> /usr/bin/sudo /usr/sbin/chown bigsby /usr/local/.
 ==> /usr/bin/sudo /usr/bin/chgrp admin /usr/local/.
 ==> /usr/bin/sudo /bin/mkdir /Library/Caches/Homebrew
@@ -85,52 +64,47 @@ Further documentation: https://git.io/brew-docs
 Read the analytics documentation (and how to opt-out) here:
   https://git.io/brew-analytics
             </pre>
-                <p>Homebrew should be installed and up-to-date at this point but..</p>
-                <pre><code class="language-bash">$ brew update</code></pre>
-                <p>That should outpu:</p>
-                <pre>Already up-to-date</pre>
+        <p>Homebrew should be installed and up-to-date at this point but..</p>
+        <pre><code class="language-bash">$ brew update</code></pre>
+        <p>That should outpu:</p>
+        <pre>Already up-to-date</pre>
+    </li>
+    <li>
+        <h3>Install .Net Core package</h3>
+        <ol type="I">
+            <li>
+                <h4>Download packgage</h4>
+                <p>Click the link that says "official PKG package"</p>
             </li>
             <li>
-                <h3>Install .Net Core package</h3>
-                <ol type="I">
-                    <li>
-                        <h4>Download packgage</h4>
-                        <p>Click the link that says "official PKG package"</p>
-                    </li>
-                    <li>
-                        <h4>Install the package</h4>
-                        <p>This will download the package through the Mac OS download manager. Double-click on it.</p>
-                        <img src="../images/mac/netcore/05dotcoredownload.PNG" />
-                    </li>
-                    <li>
-                        <h4>Follow the wizard instrunctions</h4>
-                        <p>Click "Continue" in "Introduction"</p>
-                        <img src="../images/mac/netcore/06installdotcorepackage.PNG" />
-                        <p>Click "Continue" in "License"</p>
-                        <img src="../images/mac/netcore/07dotcoreagree.PNG" />
-                        <p>"Agree"</p>
-                        <img src="../images/mac/netcore/08dotcoreagree.PNG" />
-                        <p>Click "Install" in "Installation Type"</p>
-                        <img src="../images/mac/netcore/09dotcoreinstall.PNG" />
-                        <p>Type in the password</p>
-                        <img src="../images/mac/netcore/10dotcorepassword.PNG" />
-                        <h4>And were done</h4>
-                        <img src="../images/mac/netcore/11dotcoreinstalled.PNG" />
-                    </li>
-                </ol>
-                <h3>Confirm installation</h3>
-                <p>Go to the Terminal and:</p>
-                <pre><code class="language-bash">$ dotnet --version</code></pre>
-                <p>That should output:</p>
-                <pre>1.0.0-preview1-002702</pre>
+                <h4>Install the package</h4>
+                <p>This will download the package through the Mac OS download manager. Double-click on it.</p>
+                <img src="../images/mac/netcore/05dotcoredownload.PNG" />
             </li>
-
+            <li>
+                <h4>Follow the wizard instrunctions</h4>
+                <p>Click "Continue" in "Introduction"</p>
+                <img src="../images/mac/netcore/06installdotcorepackage.PNG" />
+                <p>Click "Continue" in "License"</p>
+                <img src="../images/mac/netcore/07dotcoreagree.PNG" />
+                <p>"Agree"</p>
+                <img src="../images/mac/netcore/08dotcoreagree.PNG" />
+                <p>Click "Install" in "Installation Type"</p>
+                <img src="../images/mac/netcore/09dotcoreinstall.PNG" />
+                <p>Type in the password</p>
+                <img src="../images/mac/netcore/10dotcorepassword.PNG" />
+                <h4>And were done</h4>
+                <img src="../images/mac/netcore/11dotcoreinstalled.PNG" />
+            </li>
         </ol>
-        <a href="../index.html#createNetCoreApplication"><h3>Next -> Create first .Net Core Application</h3></a>
-    </section>
+        <h3>Confirm installation</h3>
+        <p>Go to the Terminal and:</p>
+        <pre><code class="language-bash">$ dotnet --version</code></pre>
+        <p>That should output:</p>
+        <pre>1.0.0-preview1-002702</pre>
+    </li>
 
-    <section class="page-header">
-        <a href="../index.html" class="btn">Home of Series</a>
-    </section>
-</body>
-</html>
+</ol>
+<!--<a href="../index.html#createNetCoreApplication">
+    <h3>Next -> Create first .Net Core Application</h3>
+</a>-->

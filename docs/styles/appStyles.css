@@ -1,0 +1,19 @@
+img{
+    max-width: 100%;
+}
+
+pre, code{
+    white-space: pre-wrap
+}
+
+.noNumber {
+    list-style-type: none;
+}
+
+hr {
+  height: 2px;
+  padding: 0;
+  margin: 1rem 0;
+  background-color: #eff0f1;
+  border: 0; 
+}

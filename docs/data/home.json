@@ -1,5 +1,6 @@
 {
-    "oss": [{
+    "oss": [
+        {
             "name": "Windows (10)",
             "link": "https://www.microsoft.com/en-us/software-download/windows10/"
         },
@@ -13,9 +14,11 @@
         }
     ],
     "technologies": {
-        "categories": [{
+        "categories": [
+            {
                 "name": "Coding",
-                "items": [{
+                "items": [
+                    {
                         "name": "Visual Studio Code",
                         "link": "https://code.visualstudio.com",
                         "description": "the IDE"
@@ -34,7 +37,8 @@
             },
             {
                 "name": "Server (backend)",
-                "items": [{
+                "items": [
+                    {
                         "name": ".Net Core",
                         "link": "https://www.microsoft.com/net/core",
                         "description": "the framework"
@@ -58,7 +62,8 @@
             },
             {
                 "name": "Client (frontend)",
-                "items": [{
+                "items": [
+                    {
                         "name": "NodeJS",
                         "link": "https://nodejs.org",
                         "description": "the client side compiling framework"
@@ -92,20 +97,216 @@
             }
         ]
     },
-    "steps": [{
-        "id": "operatingSystems",
-        "name": "Install Operatings System",
-        "text": "As expected, the process of installing the Operating Systems is different on each platform and, as such, is described in seperate:",
-        "step": "os",
-        "platforms": [{
-            "name": "Installing Windows",
-            "platform": "windows"
-        }, {
-            "name": "Installing Linux",
-            "platform": "linux"
-        }, {
-            "name": "Installing Mac OS X",
-            "platform": "mac"
-        }]
-    }]
+    "steps": [
+        {
+            "id": "operatingSystems",
+            "name": "Install Operatings System",
+            "text": "As expected, the process of installing the Operating Systems is different on each platform and, as such, is described in seperate:",
+            "step": "os",
+            "platforms": [
+                {
+                    "name": "Installing Windows",
+                    "category": "windows"
+                },
+                {
+                    "name": "Installing Linux",
+                    "category": "linux"
+                },
+                {
+                    "name": "Installing Mac OS X",
+                    "category": "mac"
+                }
+            ]
+        },
+        {
+            "id": "netCore",
+            "name": "Install .Net Core",
+            "text": "Still, as ecpected, installing .Net Core is different on each platform and, as such, is described in seperate:",
+            "step": "netcore",
+            "platforms": [
+                {
+                    "name": "Installing .Net Core on Windows",
+                    "category": "windows"
+                },
+                {
+                    "name": "Installing .Net Core on Linux",
+                    "category": "linux"
+                },
+                {
+                    "name": "Installing .Net Core on Mac OS X",
+                    "category": "mac"
+                }
+            ]
+        },
+        {
+            "id": "createNetCoreApplication",
+            "name": "Create first .Net Core application",
+            "text": "The procces creating a .Net Core application is totally cross-platform and is described singly.",
+            "step": "first",
+            "category": "netcore"
+        },
+        {
+            "id": "visualStudioCode",
+            "name": "Installing Visual Studio Code",
+            "text": "As most softwares, as Visual Studio Code is, installation is different on each platform and, as such, is described in separate:",
+            "step": "vscode",
+            "platforms": [
+                {
+                    "name": "Installing Visual Studio Code on Windows",
+                    "category": "windows"
+                },
+                {
+                    "name": "Installing Visual Studio Code on Linux",
+                    "category": "linux"
+                },
+                {
+                    "name": "Installing Visual Studio Code on Mac OS X",
+                    "category": "mac"
+                }
+            ]
+        },
+        {
+            "id": "git",
+            "name": "Installing Git",
+            "text": "Git is not mandatory at this point but a line must be drawn when platform specific procedures end. So, we'll take care of it now. Being Git a software, installation is different on each platform and, as such, is described in seperate",
+            "step": "git",
+            "platforms": [
+                {
+                    "name": "Installing Git on Windows",
+                    "category": "windows"
+                },
+                {
+                    "name": "Installing Git on Linux",
+                    "description": "No need to install because it's a dependency of Visual Studio Code."
+                },
+                {
+                    "name": "Installing Git on Mac OS X",
+                    "description": "No need to install because it's a dependency of Visual Studio Code."
+                }
+            ]
+        },
+        {
+            "id": "node",
+            "name": "Installing NodeJS (npm)",
+            "text": "Like Git, NodeJS is not needed at this moment but it's, actually, the last install that is not cross-platform so, we'll get the platform specific shenanigans out of the way but installing <url href=\"https://nodejs.org/\">NodeJS</url>.</p><p>We won't be using NodeJS as a server (although we could, but it defeats the purpose of these series), but will use a component installed with NodeJS called <url href=\"https://www.npmjs.com/\">npm</url> that is a package manager, initially intended only for Javascript packages to run in NodeJS but that caters for a lot more, for instance, TypeScript components and references. NodeJS will be used as runtime for running build tasks, mostly, through Gulp...but we'll get there, in time.</p><p>Being NodeJS a software (promise), installation is different on each platform and, as such, is described in seperate:",
+            "step": "node",
+            "platforms": [
+                {
+                    "name": "Installing NodeJS on Windows",
+                    "category": "windows"
+                },
+                {
+                    "name": "Installing NodeJS on Linux (Debian)",
+                    "category": "linux"
+                },
+                {
+                    "name": "Installing NodeJS on Mac OS X",
+                    "category": "mac"
+                }
+            ]
+        },
+        {
+            "id": "users",
+            "name": "Break",
+            "skipNumber": true,
+            "text": "<h4 class=\"underlined\">From this point onwards, everything is exactly the same on all platforms!</h4><p>I'll be moving from platform to platform (the one I feel like using at the time) to show the collaboration side of things and to make sure everything actually works (the same) everywhere.<p>With collaboration purposes in mind, different GitHub accounts were created and set as collaborators on this <url href=\"https://github.com/Bigsby/NetCore\">repository</url>. They are:</p>",
+            "items": [
+                {
+                    "name": "Bigsby Gates",
+                    "link": "https://github.com/bigsbyGates",
+                    "description": "working on Windows"
+                },
+                {
+                    "name": "Bigsby Trovalds",
+                    "link": "https://github.com/bigsbyTrovalds",
+                    "description": "working on Linux"
+                },
+                {
+                    "name": "Bigsby Jobs",
+                    "link": "https://github.com/bigsbyJobs",
+                    "description": "working on Mac"
+                }
+            ],
+            "tagText": "The repository history will show these 3 accounts were in action"
+        },
+        {
+            "id": "debug",
+            "name": "Debugging in Visual Studio Codes",
+            "text": "Debugging a .Net Core application in Visual Studio Code is totally cross-platform and is described singly.",
+            "step": "debug",
+            "category": "netcore"
+        },
+        {
+            "id": "github",
+            "name": "Clone the GitHub Repository",
+            "text": "Now that Visual Studio Code is up and running and all the installs are in place, it's time to start collaborating, i.e., use the same code base on all platfomrs. The process to clone (and track) a GitHub repository are described singly.",
+            "step": "github",
+            "category": "misc"
+        },
+        {
+            "id": "openCross",
+            "name": "Open shared (cross) project",
+            "text": "The very simple process of opening a share (and cross-plaftorm) .Net Core project is described singly.",
+            "step": "opencross",
+            "category": "misc"
+        },
+        {
+            "id": "changeCommit",
+            "name": "Make changes and Commit",
+            "text": "Just opening and running someone else's code is no fun. Let's make some changess. I'll be doing the changes on the 3 platforms just to make sure everything works everywhere but the process is exactly the same: I'll just follow it 3 times. The process is described singly.",
+            "step": "change",
+            "category": "misc"
+        },
+        {
+            "id": "aspNetCore",
+            "name": "Creating first Asp.Net Core application",
+            "text": "There's a little more to creating a Asp.Net Core Web Application than to create a simple console application, although some cross-platform components are installed on the way. The steps are described singly.",
+            "step": "create",
+            "category": "web"
+        },
+        {
+            "id": "debugAspNetCore",
+            "name": "Open and debug Web Application in Visual Studio Code",
+            "text": "The process of opening and debugging an Asp.NET Core web applicaiton in Visual Studio Code is a simple one and is decribed singly.",
+            "step": "debug",
+            "category": "web"
+        },
+        {
+            "id": "staticFiles",
+            "name": "Add support for Static Files",
+            "text": "Adding support for static files and define default document(s) is described singly.",
+            "step": "static",
+            "category": "web"
+        },
+        {
+            "id": "notFound",
+            "name": "Not Found Page",
+            "text": "Adding a user friendly \"Not found!\" page is described singly.",
+            "step": "notfound",
+            "category": "web"
+        },
+        {
+            "id": "mvc",
+            "name": "Add an MVC Controller",
+            "text": "Adding an MVC Controller, to allow for server side logic.",
+            "step": "mvc",
+            "category": "web"
+        },
+        {
+            "id": "typeScript",
+            "name": "Add TypeScript support",
+            "text": "<em>TypeScript</em> is a subject of its own and having it working and, most importantly, debugging at the same time with the server side of things, the MVC Controller added in the previous step, is not immediate. The process is described singly.",
+            "step": "typescript",
+            "category": "web"
+        },
+        {
+            "id": "timeLine",
+            "skipNumber": true,
+            "text": "<hr /><p style=\"color:red\">Current timeline</p><hr />"
+        },
+        {
+            "id": "angular2",
+            "name": "Add Angular 2"
+        }
+    ]
 }

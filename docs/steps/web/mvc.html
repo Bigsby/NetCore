@@ -1,0 +1,201 @@
+﻿<h1>
+    Adding an MVC Controller to an AstNet .Core Web Applicaiton in Visual Studio Code</h1>
+
+<p>MVC is an acronym that stands for Model View Controller. It was born to allow for templating of HTML in a strongly-typed
+    fashion in the server side. Since then, generating HTML in the server side is (wisely) being deprecate, leaving that
+    job to be handled in the client side (we'll get there). Never the less, some logic still needs to run on the server side
+    that is no concern of the client and MVC and its controllers allow for just that.</p>
+
+<p>To add an MVC Controller to our Web Application, we need to add these steps:</p>
+<ol>
+    <li>
+        <h3>Add MVC Dependency</h3>
+        <p>As before, adding a server side dependency is done by adding a dependenct to "project.json" file. After this, "project.json"
+            should look like this:</p>
+        <pre><code class="language-json">{
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.0.0-rc2-3002702",
+      "type": "platform"
+    },
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final"
+  },
+  "tools": {
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
+      "version": "1.0.0-preview1-final",
+      "imports": "portable-net45+win8+dnxcore50"
+    }
+  },
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "dnxcore50",
+        "portable-net45+win8"
+      ]
+    }
+  },
+  "buildOptions": {
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true,
+    "debugType": "portable"
+  },
+  "runtimeOptions": {
+    "gcServer": true
+  },
+  "publishOptions": {
+    "include": [
+      "wwwroot",
+      "web.config"
+    ]
+  },
+  "scripts": {
+    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+  },
+  "tooling": {
+    "defaultNamespace": "webApp"
+  }
+}
+</code></pre>
+        <p><b>Remember to go to the CLI and run a .Net restore.</b></p>
+    </li>
+    <li>
+        <h3>Add usage of MVC Service And Middleware</h3>
+        <p>As with the static files support, we need to configure the MVC middleware in the web application but, since there
+            need to be special handlers running specific libraries, we also need to configure the MVC service the service.
+            The middleware will pick up the HTTP request, teling the app that the HTTP request is taken care of. The service
+            will handle all the controller logic.</p>
+        <p>AFter adding MVC support, the "Startup.cs" file will look like this:</p>
+        <pre class="line-numbers"><code class="language-csharp">using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+namespace webApp
+{
+    public class Startup
+    {
+        // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddMvc();
+        }
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app)
+        {
+            app.UseMvc(routeBuilder =>
+                routeBuilder.MapRoute("default", "{controller}/{action}")   
+            );
+            
+            var defaultFilesOptions = new DefaultFilesOptions();
+            defaultFilesOptions.DefaultFileNames.Clear();
+            defaultFilesOptions.DefaultFileNames.Add("index.html");
+            app.UseDefaultFiles(defaultFilesOptions);
+            
+            app.UseStaticFiles();
+            
+            app.Run(async (context) =>
+            {
+                await context.Response.SendFileAsync("wwwroot/notfound.html");
+            });
+        }
+    }
+}
+</code></pre>
+        <p>Note the call to "UseMvc()" method: it is setting a route template. This means that the MVC middleware will respond
+            to HTTP requests when the relative path (after the root "http://localhost:5000/") contains the name of the controller
+            and the name of the action seperated by a slash ('/').</p>
+    </li>
+    <li>
+        <h3>Add MVC Controller</h3>
+        <p>For cleaness in the project, let's keep all server side logic in a folder of its own in our project. These will be
+            the steps:</p>
+        <ol type="I">
+            <li>
+                <h4>Create server folder</h4>
+                <p>In VS Code, click the "New Folder" button:</p>
+                <img src="../images/web/05newfolder.PNG" />
+                <p>Name the folder "server"</p>
+            </li>
+            <li>
+                <h4>Create the controller</h4>
+                <p>Right click the "server" folder, select "New File", call the file "SimpleController.cs" and add this content:</p>
+                <pre class="line-numbers"><code class="language-csharp">using Microsoft.AspNetCore.Mvc;
+public class SimpleController : Controller
+{
+    public string TheAction()
+    {
+        return "This is a simple action";        
+    }
+}</code></pre>
+            </li>
+        </ol>
+    </li>
+    <li>
+        <h3>Test Controller</h3>
+        <p>Hit <kbd>F5</kbd> to run the project. Afther the browser opens the default document, change to browser's address
+            bar URL to <a href="http://localhost:5000/Simple/TheAction" target="_blank">http://localhost:5000/Simple/TheAction</a>.
+            The browser should display:</p>
+        <code>This is a simple action</code>
+        <p>Note that relative path "Simple/TheAction" is pickup by MVC middleware because there is a class deriving from Microsoft.AspNetCore.Mvc.Controller
+            named "SimpleController" (yes, ugly but the concatenation of string to find the type exists) and, in that class,
+            there is a method called "TheAction". There a few more validation regarding HTTP verbs (also called methods),
+            but we'll get there in time.</p>
+    </li>
+
+    <li>
+        <h3>Add a parameterized Action</h3>
+        <p>In "SimpleController.cs" add a method to "SimpleContoller" class like so:</p>
+        <pre><code class="language-csharp">public string Send(strint value)
+{
+    return $"You sent: {value}";        
+}</code></pre>
+        <p>Run the app and set the browser's address bar URL to <a href="http://localhost:5000/Simple/Send?value=value sent"
+                target="_blank">http://localhost:5000/Simple/Send?value=value sent</a>. The browser should display:</p>
+        <code>You sent: value sent</code>
+        <p>Note one of the things MVC Service does which is to read, by default (though this can be changed), simple parameters
+            from the URL Query string, in this case "value" is read from the Query Strirng ("?value?value sent") and "injected"
+            as parameter in "Send" method. More on this later.</p>
+    </li>
+
+    <li>
+        <h3>Return a complex type</h3>
+        <p>Another thing MVC Service does is serializing complex object. Complex object means types of object that hold more
+            than one value.</p>
+        <p>To test this, let's follows these steps:</p>
+        <ol type="I">
+            <li>
+                <h4>Create the complex type</h4>
+                <p>Let's create a file in "server" folder called "Item.cs" and set this as its content:</p>
+                <pre><code class="language-csharp">public class Item
+{
+    public string Name { get; set; }
+    public int Value { get; set; }
+}</code></pre>
+            </li>
+            <li>
+                <h4>Create action returning complex type</h4>
+                <p>In "SimpleControlller.cs", let's a method that returns the item:</p>
+                <pre><code class="language-csharp">public Item GetItem(string name, int @value)
+{
+    return new Item
+    {
+        Name = name,
+        Value = @value    
+    };
+}</code></pre>
+            </li>
+        </ol>
+        <p>Run the app, by hitting <kbd>F5</kbd> and set the browser's address bar URL to <a href="http://localhost:5000/Simple/GetItem?name=John Cleese&value=1939"
+                target="_blank">http://localhost:5000/Simple/GetItem?name=John Cleese&value=1939</a>. The browser should display
+            a JSON serialization of the <b>Item</b> object returned, like so:</p>
+        <pre><code class="language-json">{"Name":"John Cleese","Value":1939}</code></pre>
+    </li>
+</ol>
+
+<!--<a href="../index.html#typeScript">
+    <h3>Next -> Add TypeScript support</h3>
+</a>-->

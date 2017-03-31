@@ -1,0 +1,75 @@
+﻿<h1>Adding not found page to ASP.Net Core application in Visual Studio Code</h1>
+
+<p>As we've seen before, when no middleware handles an HTTP request, the fallback handle defined in "app.Run()" in "Startup.cs"
+    "Configure" method is invoked. To change the response for a not found resource, this generic handler needs to be changed.</p>
+
+<p>Note: If no fallback handler is set, Asp.Net Core return a NotFound (404) HTTP Code to the client without any content.</p>
+
+<p>To return a file in the fallback hander, these steps need to be follwed:</p>
+
+<ol>
+    <li>
+        <h4>Add a not found file</h4>
+        <p>Add a file to "wwwroot" folder, name it "notfound.html" and set this as its content:</p>
+        <pre class="line-numbers"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Not found resource&lt;/title&gt;
+        &lt;meta charset="utf-8"/&gt;
+    &lt;/head&gt;
+    
+    &lt;body&gt;
+        You are requesting &lt;span style="color: red"&gt;a resource that does not exist or is not configured&lt;/span&gt; in this &lt;b&gt;Asp.Net Core Web Application&lt;/b&gt;!
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </li>
+    <li>
+        <h4>Configure returning the file</h4>
+        <p>As we've seen before, we need to tell the fallback handler to return the "not found" page by changing the "app.Run()"
+            method in "Startup.cs" "Configure()" method. The whole file will look like this:</p>
+        <pre class="line-numbers"><code class="language-csharp">using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+namespace webApp
+{
+    public class Startup
+    {
+        // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public void ConfigureServices(IServiceCollection services)
+        {
+        }
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app)
+        {
+            var defaultFilesOptions = new DefaultFilesOptions();
+            defaultFilesOptions.DefaultFileNames.Clear();
+            defaultFilesOptions.DefaultFileNames.Add("index.html");
+            app.UseDefaultFiles(defaultFilesOptions);
+            
+            app.UseStaticFiles();
+            
+            app.Run(async (context) =>
+            {
+                await context.Response.SendFileAsync("wwwroot/notfound.html");
+            });
+        }
+    }
+}
+</code></pre>
+    </li>
+    <li>
+        <h4>Test not found fallback</h4>
+        <p>Hit <kbd>F5</kbd> to run the project and, after the browser opens the default document, change the URL in the address
+            bar adding gibberish to it like <a href="http://localhost:5000/asdfasd">http://localhost:5000/asdfasd</a>. The
+            result should be the content of the "notfound.html" file with the HTML styling:</p>
+        <code>
+                    You are requesting <span style="color: red">a resource that does not exist or is not configured</span> in this <b>Asp.Net Core Web Application</b>!
+                </code>
+    </li>
+</ol>
+
+<!--<a href="../index.html#mvc">
+    <h3>Next -> Add an MVC Controller</h3>
+</a>-->

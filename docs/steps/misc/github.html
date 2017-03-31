@@ -1,0 +1,53 @@
+﻿<h1>Clone the GitHub Repository</h1>
+
+<p>To clone (and track) a repository in GitHub these steps:</p>
+<ol type="I">
+    <li>
+        <h4>Go to repository page</h4>
+        <p>Open a web browser and go to the repository page, in this case <a href="https://github.com/Bigsby/NetCore" target="_blank">https://github.com/Bigsby/NetCore</a></p>
+        <p>As no extra software was installed, browser here means: Microsoft Edge for Windows, IceWeasel for Debian and Safari
+            for Mac OS X</p>
+        <p>Other Git providers, like <a href="https://www.visualstudio.com/en-us/products/what-is-visual-studio-online-vs.aspx">Visual Studio Online (now called Team Services)</a>            or <a href="https://bitbucket.org/" target="_blank">Bitbucket</a> also provider a similar button or, at least,
+            the URL to copy and use to clone.</p>
+    </li>
+    <li>
+        <h4>Copy the repository URL</h4>
+        <p>Click the button that says "Clone or download" and, then, click the button next to the URL to copy the URL to the
+            clipboard</p>
+        <img src="../images/git/01copyurl.PNG" />
+    </li>
+    <li>
+        <h4>Clone the Repository</h4>
+        <p>In the CLI (Command Line Interface, yes, Terminal for Linux and Mac OS and Command Prompt for Windows) run:</p>
+        <pre><code class="language-bash">$ git clone https://github.com/Bigsby/NetCore.git</code></pre>
+        <p>The output should look like this:</p>
+        <pre>
+Cloning into 'NetCore'...
+remote: Counting objects: 342, done.
+remote: Compressing objects: 100% (289/289), done.
+remote: Total 342 (delta 102), reused 260 (delta 38), pack-reused 0
+Receiving objects: 100% (342/342), 5.53 MiB | 1.17 MiB/s, done.
+Resolving deltas: 100% (102/102), done.
+Checking connectivity... done.
+                </pre>
+    </li>
+    <li>
+        <h4>Confirm Clonage</h4>
+        <p>Browser the folder. In the CLI, run:</p>
+        <pre><code class="language-bash">$ cd NetCore</code></pre>
+        <p>The folder should contain, at this point, 1 folder:</p>
+        <ul>consoleApp</ul>
+        <p>...and 3 files:</p>
+        <ul>
+            <li>.gitignore</li>
+            <li>LICENSE</li>
+            <li>README.md</li>
+        </ul>
+        <p>If you run this after I complete the next steps in these series, more content should display.</p>
+    </li>
+</ol>
+<h4>And we're done here!</h4>
+
+<!--<a href="../index.html#openCross">
+    <h3>Next -> Open shared (cross-platform) project</h3>
+</a>-->

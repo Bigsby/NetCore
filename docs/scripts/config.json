@@ -13,7 +13,8 @@
         "hljs"
     ],
     "styles": [
-        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/tomorrow.min.css"
+        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/tomorrow.min.css",
+        "styles/appStyles.css"
     ],
     "useRouting": true,
     "initialData": [
