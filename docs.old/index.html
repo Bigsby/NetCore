@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>NetCore by Bigsby</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/prism.css">
+    <script src="scripts/prism.js"></script>
+</head>
+<body>
+    <section class="page-header">
+        <h1 class="project-name">NetCore</h1>
+        <h2 class="project-tagline">Testing cross-platform of .Net Core</h2>
+        <a href="https://github.com/Bigsby/NetCore" class="btn" target="_blank">View on GitHub</a>
+        <a href="https://github.com/Bigsby/NetCore/zipball/master" class="btn">Download .zip</a>
+        <a href="https://github.com/Bigsby/NetCore/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+        <p>This series tells the story of implementating a web applicatin in .Net Core in 3 (actually, 2.5) Operating Systems:</p>
+        <ul>
+            <li><a href="https://www.microsoft.com/en-us/software-download/windows10/" target="_blank">Windows (10)</a>;</li>
+            <li><a href="https://www.debian.org/CD/http-ftp/" target="_blank">Linux (Debian)</a>;</li>
+            <li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1018109117&mt=12&ls=1" target="_blank">Mac OS X (10.11 El Capitan)</a>.</li>
+        </ul>
+
+        <p>For that purpose, the process, from clean Operating System install to full production, will be described. What you see here was added while following the described steps.</p>
+
+        <p>The shared techologies and software to be used are:</p>
+        <ul>
+            <li><a href="https://www.microsoft.com/net/core" target="_blank">.Net Core</a> (the framework);</li>
+            <li><a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a> (the IDE);</li>
+            <li><a href="https://msdn.microsoft.com/en-us/library/z1zx9t92.aspx" target="_blank">C# programming language</a> (the server side code language);</li>
+            <li><a href="https://git-scm.com/" target="_blank">Git</a> (the versioning system) & <a href="https://github.com/" target="_blank">GitHub</a> (the repository provider);</li>
+            <li><a href="https://nodejs.org" target="_blank">NodeJS</a> (the client side compiling framework) & <a href="https://www.npmjs.com/" target="_blank">npm</a> (the client side package manager);</li>
+            <li><a href="https://github.com/aspnet/Mvc" target="_blank">Asp.Net Core MVC</a> (the server side framework);</li>
+            <li><a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> (the client side code language);</li>
+            <li><a href="https://angular.io/" target="_blank">Angular 2</a> (the client side framework);</li>
+            <li><a href="http://lesscss.org/" target="_blank">{less}</a> (the client side theming language);</li>
+            <li><a href="http://gulpjs.com/" target="_blank">Gulp</a> (the client side packaging tool);</li>
+            <li><a href="https://azure.microsoft.com" target="_blank">Windows Azure</a>.</li>
+        </ul>
+        <p>(...these are the ones, will be used, for sure. This list might grow upon usage)</p>
+
+        <hr />
+
+        <p>Here we go:</p>
+        <ol>
+            <li id="operatingSystems">
+                <h3>Install Operatings System</h3>
+                <p>As expected, the process of installing the Operating Systems is different on each platform and, as such, is described in seperate:</p>
+                <ul>
+                    <li><a href="windows/os.html">Installing Windows</a></li>
+                    <li><a href="linux/os.html">Installing Linux</a></li>
+                    <li><a href="mac/os.html">Installing Mac OS X</a></li>
+                </ul>
+                <br />
+            </li>
+
+            <li id="netCore">
+                <h3>Install .Net Core</h3>
+                <p>Still, as ecpected, installing .Net Core is different on each platform and, as such, is described in seperate:</p>
+                <ul>
+                    <li><a href="windows/netcore.html">Installing .Net Core on Windows</a></li>
+                    <li><a href="linux/netcore.html">Installing .Net Core on Linux</a></li>
+                    <li><a href="mac/netcore.html">Installing .Net Core on Mac OS X</a></li>
+                </ul>
+                <br />
+            </li>
+
+            <li id="createNetCoreApplication">
+                <h3>Creating first .Net Core application</h3>
+                <p>The procces creating a .Net Core application is totally cross-platform and is described <a href="netcore/first.html" target="_blank">here</a>.</p>
+            </li>
+
+            <li id="visualStudioCode">
+                <h3>Installing Visual Studio Code</h3>
+                <p>As most softwares, as Visual Studio Code is, installation is different on each platform and, as such, is described in separate:</p>
+                <ul>
+                    <li><a href="windows/vscode.html">Installing Visual Studio Code on Windows</a></li>
+                    <li><a href="linux/vscode.html">Installing Visual Studio Code on Linux</a></li>
+                    <li><a href="mac/vscode.html">Installing Visual Studio Code on Mac OS X</a></li>
+                </ul>
+                <br />
+            </li>
+
+            <li id="git">
+                <h3>Installing Git</h3>
+                <p>Git is not mandatory at this point but a line must be drawn when platform specific procedures end. So, we'll take care of it now. Being Git a software, installation is different on each platform and, as such, is described in seperate</p>
+                <ul>
+                    <li><a href="windows/git.html">Installing Git on Windows</a></li>
+                    <li>Installing Git on Linux - No need to install because it's a dependency of Visual Studio Code.</li>
+                    <li>Installing Git on Mac OS X - No need to install because it's a dependency of Visual Studio Code.</li>
+                </ul>
+                <br />
+            </li>
+
+            <li id="node">
+                <h3>Installing NodeJS (npm)</h3>
+                <p>Like Git, NodeJS is not needed at this moment but it's, actually, the last install that is not cross-platform so, we'll get the platform specific shenanigans out of the way but installing <a href="https://nodejs.org/" target="_blank">NodeJS</a>.</p>
+                <p>We won't be using NodeJS as a server (although we could, but it defeats the purpose of these series), but will use a component installed with NodeJS called <a href="https://www.npmjs.com/" target="_blank">npm</a> that is a package manager, initially intended only for Javascript packages to run in NodeJS but that caters for a lot more, for instance, TypeScript components and references. NodeJS will be used as runtime for running build tasks, mostly, through Gulp...but we'll get there, in time.</p>
+                <p>Being NodeJS a software (the last, I promise), installation is different on each platform and, as such, is described in seperate:</p>
+                <ul>
+                    <li><a href="windows/node.html">Installing NodeJS on Windows</a></li>
+                    <li><a href="linux/node.html">Installing NodeJS on Linux (Debian)</a></li>
+                    <li><a href="mac/node.html">Installing NodeJS on Mac OS X</a></li>
+                </ul>
+
+                <br />
+                <hr />
+                <h2>Break</h2>
+                <h4 style="text-decoration: underline">From this point onwards, everything is exactly the same on all platforms!</h4>
+                <p>I'll be moving from platform to platform (the one I feel like using at the time) to show the collaboration side of things and to make sure everything actually works (the same) everywhere.
+                <p>With collaboration purposes in mind, different GitHub accounts were created and set as collaborators on this <a href="https://github.com/Bigsby/NetCore" target="_blank">repository</a>. They are:</p>
+                <ul>
+                    <li><a href="https://github.com/bigsbyGates" target="_blank">Bigsby Gates</a>, working on Windows;</li>
+                    <li><a href="https://github.com/bigsbyTrovalds" target="_blank">Bigsby Trovalds</a>, working on Linux;</li>
+                    <li><a href="https://github.com/bigsbyJobs" target="_blank">Bigsby Jobs</a>, working on Mac.</li>
+                </ul>
+                <p>The repository history will show these 3 accounts were in action.</p>
+                <hr />
+                <br />
+            </li>
+
+            <li id="debug">
+                <h3>Debugging in Visual Studio Code</h3>
+                <p>Debugging a .Net Core application in Visual Studio Code is totally cross-platform and is described <a href="netcore/debug.html">here</a>.</p>
+            </li>
+
+            <li id="github">
+                <h3>Clone the GitHub Repository</h3>
+                <p>Now that Visual Studio Code is up and running and all the installs are in place, it's time to start collaborating, i.e., use the same code base on all platfomrs. The process to clone (and track) a GitHub repository are described <a href="misc/github.html">here</a>.</p>
+            </li>
+
+            <li id="openCross">
+                <h3>Open shared (cross) project</h3>
+                <p>The very simple process of opening a share (and cross-plaftorm) .Net Core project is described <a href="misc/opencross.html">here</a>.</p>
+            </li>
+
+            <li id="changeCommit">
+                <h3>Make changes and Commit</h3>
+                <p>Just opening and running someone else's code is no fun. Let's make some changess. I'll be doing the changes on the 3 platforms just to make sure everything works everywhere but the process is exactly the same: I'll just follow it 3 times. The process is described <a href="misc/change.html">here</a>.</p>
+            </li>
+
+            <li id="aspNetCore">
+                <h3>Creating first Asp.Net Core application</h3>
+                <p>There's a little more to creating a Asp.Net Core Web Application than to create a simple console application, although some cross-platform components are installed on the way. The steps are described <a href="web/create.html">here</a>.</p>
+            </li>
+
+            <li id="debugAspNetCore">
+                <h3>Open and debug Web Application in Visual Studio Code</h3>
+                <p>The process of opening and debugging an Asp.NET Core web applicaiton in Visual Studio Code is a simple one and is decribed <a href="web/debug.html">here</a>.</p>
+            </li>
+
+            <li id="staticFiles">
+                <h3>Add support for Static Files</h3>
+                <p>Adding support for static files and define default document(s) is described <a href="web/static.html">here</a>.</p>
+            </li>
+
+            <li id="notFound">
+                <h3>Not Found Page</h3>
+                <p>Adding a user friendly "Not found!" page is described <a href="web/notfound.html">here</a>.</p>
+            </li>
+
+            <li id="mvc">
+                <h3>Add an MVC Controller</h3>
+
+                <p>Adding an MVC Controller, to allow for server side logic, can be found <a href="web/mvc.html">here</a>.</p>
+            </li>
+
+            <li id="typeScript">
+                <h3>Add TypeScript support</h3>
+                <p><em>TypeScript</em> is a subject of its own and having it working and, most importantly, debugging at the same time with the server side of things, the MVC Controller added in the previous step, is not immediate. The process is described <a href="web/typescript.html">here</a>.
+            </li>
+
+            <hr />
+            <p style="color:red">Current timeline</p>
+            <hr />
+            
+            <li id="angular2">
+                <h3>Add Angular 2 framework</h3>
+            </li>
+        </ol>
+        <br />
+    </section>
+</body>
+</html>

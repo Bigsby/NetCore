@@ -1,0 +1,8 @@
+<url ng-if="$ctrl.item.link" href="{{$ctrl.item.link}}" text="{{$ctrl.item.name}}"></url>
+<span ng-if="!$ctrl.item.link">{{$ctrl.item.name}}</span>
+<span ng-if="$ctrl.item.description"> - {{$ctrl.item.description}}</span>
+<ul ng-if="$ctrl.item.subItems">
+    <li ng-repeat="item in $ctrl.item.subItems">
+        <dev-item item="item"></dev-item>
+    </li>
+</ul>

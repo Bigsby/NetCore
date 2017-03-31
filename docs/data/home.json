@@ -1,0 +1,103 @@
+{
+    "oss": [
+        {
+            "name": "Windows (10)",
+            "link": "https://www.microsoft.com/en-us/software-download/windows10/"
+        },
+        {
+            "name": "Linux (Debian)",
+            "link": "https://www.debian.org/CD/http-ftp/"
+        },
+        {
+            "name": "Mac OS X (10.11 El Capitan)",
+            "link": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1018109117&mt=12&ls=1"
+        }
+    ],
+    "technologies": {
+        "categories": [
+            {
+                "name": "Coding",
+                "items": [
+                    {
+                        "name": "Visual Studio Code",
+                        "link": "https://code.visualstudio.com",
+                        "description": "the IDE"
+                    },
+                    {
+                        "name": "Git",
+                        "link": "https://git-scm.com/",
+                        "description": "the versioning system"
+                    },
+                    {
+                        "name": "GitHub",
+                        "link": "https://github.com/",
+                        "description": "the repository hosting"
+                    }
+                ]
+            },
+            {
+                "name": "Server (backend)",
+                "items": [
+                    {
+                        "name": ".Net Core",
+                        "link": "https://www.microsoft.com/net/core",
+                        "description": "the framework"
+                    },
+                    {
+                        "name": "ASP.Net Core MVC Web Api",
+                        "link": "https://www.asp.net/web-api",
+                        "description": "the server side application framework"
+                    },
+                    {
+                        "name": "C# programming language",
+                        "link": "https://msdn.microsoft.com/en-us/library/z1zx9t92.aspx",
+                        "description": "the server side code language"
+                    },
+                    {
+                        "name": "Windows Azure",
+                        "link": "https://azure.microsoft.com",
+                        "description": "the server hosting"
+                    }
+                ]
+            },
+            {
+                "name": "Client (frontend)",
+                "items": [
+                    {
+                        "name": "NodeJS",
+                        "link": "https://nodejs.org",
+                        "description": "the client side compiling framework"
+                    },
+                    {
+                        "name": "npm",
+                        "link": "https://www.npmjs.com/",
+                        "description": "the client side package manager"
+                    },
+                    {
+                        "name": "TypeScript",
+                        "link": "https://www.typescriptlang.org/",
+                        "description": "the client side code language"
+                    },
+                    {
+                        "name": "Angular 2",
+                        "link": "https://angular.io/",
+                        "description": "the client side application framework"
+                    },
+                    {
+                        "name": "{less}",
+                        "link": "http://lesscss.org/",
+                        "description": "the client side theming language"
+                    },
+                    {
+                        "name": "Gulp",
+                        "link": "http://gulpjs.com/",
+                        "description": "the client side packaging tool"
+                    }
+                ]
+            }
+        ]
+    },
+    "steps":[
+        
+    ]
+}

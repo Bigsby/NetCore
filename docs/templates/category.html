@@ -1,0 +1,14 @@
+<h3 ng-if="!$ctrl.inner">{{$ctrl.category.name}}</h3>
+<h4 ng-if="$ctrl.inner">{{$ctrl.category.name}}</h4>
+
+<ul ng-if="$ctrl.category.items">
+    <li ng-repeat="item in $ctrl.category.items">
+        <item item="item"></dev-item>
+    </li>
+</ul>
+
+<ul ng-if="$ctrl.category.subCategories">
+    <li>
+        <category category="category" inner="true" ng-repeat="category in $ctrl.category.subCategories" />
+    </li>
+</ul>
