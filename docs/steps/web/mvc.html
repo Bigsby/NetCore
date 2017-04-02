@@ -12,7 +12,7 @@
         <h3>Add MVC Dependency</h3>
         <p>As before, adding a server side dependency is done by adding a dependenct to "project.json" file. After this, "project.json"
             should look like this:</p>
-        <pre><code class="language-json">{
+        <code-highlight language="json">{
   "dependencies": {
     "Microsoft.NETCore.App": {
       "version": "1.0.0-rc2-3002702",
@@ -58,8 +58,7 @@
   "tooling": {
     "defaultNamespace": "webApp"
   }
-}
-</code></pre>
+}</code-highlight>
         <p><b>Remember to go to the CLI and run a .Net restore.</b></p>
     </li>
     <li>
@@ -69,10 +68,11 @@
             The middleware will pick up the HTTP request, teling the app that the HTTP request is taken care of. The service
             will handle all the controller logic.</p>
         <p>AFter adding MVC support, the "Startup.cs" file will look like this:</p>
-        <pre class="line-numbers"><code class="language-csharp">using Microsoft.AspNetCore.Builder;
+        <code-highlight language="csharp">using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+
 namespace webApp
 {
     public class Startup
@@ -103,8 +103,7 @@ namespace webApp
             });
         }
     }
-}
-</code></pre>
+}</code-highlight>
         <p>Note the call to "UseMvc()" method: it is setting a route template. This means that the MVC middleware will respond
             to HTTP requests when the relative path (after the root "http://localhost:5000/") contains the name of the controller
             and the name of the action seperated by a slash ('/').</p>
@@ -123,14 +122,14 @@ namespace webApp
             <li>
                 <h4>Create the controller</h4>
                 <p>Right click the "server" folder, select "New File", call the file "SimpleController.cs" and add this content:</p>
-                <pre class="line-numbers"><code class="language-csharp">using Microsoft.AspNetCore.Mvc;
+                <code-highlight language="csharp">using Microsoft.AspNetCore.Mvc;
 public class SimpleController : Controller
 {
     public string TheAction()
     {
         return "This is a simple action";        
     }
-}</code></pre>
+}</code-highlight>
             </li>
         </ol>
     </li>
@@ -139,7 +138,7 @@ public class SimpleController : Controller
         <p>Hit <kbd>F5</kbd> to run the project. Afther the browser opens the default document, change to browser's address
             bar URL to <a href="http://localhost:5000/Simple/TheAction" target="_blank">http://localhost:5000/Simple/TheAction</a>.
             The browser should display:</p>
-        <code>This is a simple action</code>
+        <div class="output"><code>This is a simple action</code></div>
         <p>Note that relative path "Simple/TheAction" is pickup by MVC middleware because there is a class deriving from Microsoft.AspNetCore.Mvc.Controller
             named "SimpleController" (yes, ugly but the concatenation of string to find the type exists) and, in that class,
             there is a method called "TheAction". There a few more validation regarding HTTP verbs (also called methods),
@@ -149,13 +148,13 @@ public class SimpleController : Controller
     <li>
         <h3>Add a parameterized Action</h3>
         <p>In "SimpleController.cs" add a method to "SimpleContoller" class like so:</p>
-        <pre><code class="language-csharp">public string Send(strint value)
+        <code-highlight language="csharp">public string Send(strint value)
 {
     return $"You sent: {value}";        
-}</code></pre>
+}</code-highlight>
         <p>Run the app and set the browser's address bar URL to <a href="http://localhost:5000/Simple/Send?value=value sent"
                 target="_blank">http://localhost:5000/Simple/Send?value=value sent</a>. The browser should display:</p>
-        <code>You sent: value sent</code>
+        <div class="output"><code>You sent: value sent</code></div>
         <p>Note one of the things MVC Service does which is to read, by default (though this can be changed), simple parameters
             from the URL Query string, in this case "value" is read from the Query Strirng ("?value?value sent") and "injected"
             as parameter in "Send" method. More on this later.</p>
@@ -170,29 +169,29 @@ public class SimpleController : Controller
             <li>
                 <h4>Create the complex type</h4>
                 <p>Let's create a file in "server" folder called "Item.cs" and set this as its content:</p>
-                <pre><code class="language-csharp">public class Item
+                <code-highlight language="csharp">public class Item
 {
     public string Name { get; set; }
     public int Value { get; set; }
-}</code></pre>
+}</code-highlight>
             </li>
             <li>
                 <h4>Create action returning complex type</h4>
                 <p>In "SimpleControlller.cs", let's a method that returns the item:</p>
-                <pre><code class="language-csharp">public Item GetItem(string name, int @value)
+                <code-highlight language="csharp">public Item GetItem(string name, int @value)
 {
     return new Item
     {
         Name = name,
         Value = @value    
     };
-}</code></pre>
+}</code-highlight>
             </li>
         </ol>
         <p>Run the app, by hitting <kbd>F5</kbd> and set the browser's address bar URL to <a href="http://localhost:5000/Simple/GetItem?name=John Cleese&value=1939"
                 target="_blank">http://localhost:5000/Simple/GetItem?name=John Cleese&value=1939</a>. The browser should display
             a JSON serialization of the <b>Item</b> object returned, like so:</p>
-        <pre><code class="language-json">{"Name":"John Cleese","Value":1939}</code></pre>
+        <code-highlight language="json">{"Name":"John Cleese","Value":1939}</code-highlight>
     </li>
 </ol>
 

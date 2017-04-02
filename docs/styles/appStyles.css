@@ -2,10 +2,6 @@ img{
     max-width: 100%;
 }
 
-pre, code{
-    white-space: pre-wrap
-}
-
 .noNumber {
     list-style-type: none;
 }

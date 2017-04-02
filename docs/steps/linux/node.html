@@ -7,10 +7,9 @@
     <li>
         <h3>Download the package</h3>
         <p>Go to Terminal and type (copy/paste):</p>
-        <pre><code class="language-bash">$ curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -</code></pre>
+        <code-highlight language="bash">curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -</code-highlight>
         <p>The output should look like this:</p>
-        <pre>
-## Installing the NodeSource Node.js 4.x LTS Argon repo...
+        <output>## Installing the NodeSource Node.js 4.x LTS Argon repo...
 ## Populating apt-get cache...
 + apt-get update
 Ign http://ftp.ie.debian.org jessie InRelease
@@ -72,16 +71,14 @@ Get:15 https://deb.nodesource.com jessie/main Translation-en [162 B]
 Ign https://deb.nodesource.com jessie/main Translation-en
 Fetched 10.8 kB in 4s (2,210 B/s)    
 Reading package lists... Done
-## Run `apt-get install nodejs` (as root) to install Node.js 4.x LTS Argon and npm
-            </pre>
+## Run `apt-get install nodejs` (as root) to install Node.js 4.x LTS Argon and npm</output>
     </li>
     <li>
         <h3>Install the package</h3>
         <p>In the Terminal type:</p>
-        <pre><code class="language-bash">$ sudo apt-get install -y nodejs</code></pre>
+        <code-highlight language="bash">sudo apt-get install -y nodejs</code-highlight>
         <p>The output should look like this:</p>
-        <pre>
-Reading package lists... Done
+        <output>Reading package lists... Done
 Building dependency tree       
 Reading state information... Done
 The following extra packages will be installed:
@@ -104,20 +101,19 @@ Unpacking nodejs (4.4.5-1nodesource1~jessie1) ...
 Processing triggers for man-db (2.7.0.2-5) ...
 Setting up rlwrap (0.41-1) ...
 update-alternatives: using /usr/bin/rlwrap to provide /usr/bin/readline-editor (readline-editor) in auto mode
-Setting up nodejs (4.4.5-1nodesource1~jessie1) ...
-            </pre>
+Setting up nodejs (4.4.5-1nodesource1~jessie1) ...</output>
     </li>
 
     <li>
         <h3>Confirm installation</h3>
         <p>Go to the Terminal and type:</p>
-        <pre><code class="language-bash">$ node -v</code></pre>
+        <code-highlight language="bash">node -v</code-highlight>
         <p>The output should be something like this:</p>
-        <pre>v4.4.5</pre>
+        <output>v4.4.5</output>
         <p>Also test npm is installed because it's a key component. Type:</p>
-        <pre><code class="language-bash">$ npm -v</code></pre>
+        <code-highlight language="bash">npm -v</code-highlight>
         <p>The output should be something like this:</p>
-        <pre>2.15.5</pre>
+        <output>2.15.5</output>
     </li>
 </ol>
 

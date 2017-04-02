@@ -6,8 +6,7 @@
         <h4>Make the change</h4>
         <p>In Visual Studio Code (VS Code, from now on), open "Program.vs" file and make a change so it looks different, for
             instance, like this:</p>
-        <pre class="line-numbers"><code class="language-csharp">
-using System;
+        <code-highlight language="csharp">using System;
 namespace ConsoleApplication
 {
     public class Program
@@ -18,59 +17,54 @@ namespace ConsoleApplication
             Console.WriteLine("Bigsby Gates/Trovalds/Jobs was here!");
         }
     }
-}</code></pre>
+}</code-highlight>
     </li>
     <li>
         <h4>Commit the changes</h4>
         <p>Confirm the changes, in the CLI, run:</p>
-        <pre><code class="language-bash">$ git status</code></pre>
+        <code-highlight language="bash">git status</code-highlight>
         <p>The output should state, amongst other things, that "Programs.cs" is modified:</p>
-        <pre>
-On branch master
+        <output>On branch master
 Your branch is up-to-date with 'origin/master'.
 Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
+  (use "git add &lt;file>..." to update what will be committed)
+  (use "git checkout -- &lt;file>..." to discard changes in working directory)
         modified:   Program.cs
-no changes added to commit (use "git add" and/or "git commit -a")</pre>
+no changes added to commit (use "git add" and/or "git commit -a")</output>
 
         <p>Stage the chages by running (maybe, one of these days, I'll do a series about Git, but not today):</p>
-        <pre><code class="language-bash">$ git add .</code></pre>
+        <code-highlight language="bash">git add .</code-highlight>
         <p>That should have no output. Confirm staging of changes by re-running:</p>
-        <pre><code class="language-bash">$ git status</code></pre>
+        <code-highlight language="bash">git status</code-highlight>
         <p>That should output:</p>
-        <pre>On branch master
+        <output>On branch master
 Your branch is up-to-date with 'origin/master'.
 Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-        modified:   Program.cs</pre>
+  (use "git reset HEAD &lt;file>..." to unstage)
+        modified:   Program.cs</output>
 
         <p>Commit the staged changes with a message by running:</p>
-        <pre><code class="language-bash">$ git commit -m "Add Bigsby Gates/Trovalds/Jobs was here"</code></pre>
+        <code-highlight language="bash">git commit -m "Add Bigsby Gates/Trovalds/Jobs was here"</code-highlight>
         <p>That should output:</p>
-        <pre>
-[master cd6ea4f] Add Bigsby Gates was here
- 1 file changed, 1 insertion(+)
-              </pre>
+        <output>[master cd6ea4f] Add Bigsby Gates was here
+ 1 file changed, 1 insertion(+)</output>
         <p>One Git command I find very useful in one that shows the delta of commits between branches. This one:</p>
-        <pre><code class="language-bash">$ git log --oneline master...origin/master</code></pre>
+        <code-highlight language="bash">git log --oneline master...origin/master</code-highlight>
         <p>That, in this case, should output the commit we just did:</p>
-        <pre>cd6ea4f Add Bigsby Gates was here</pre>
+        <output>cd6ea4f Add Bigsby Gates was here</output>
         <p>Finally, push the commit(s) to the remote repository by running:</p>
-        <pre><code class="language-bash">$ git push origin master</code></pre>
+        <code-highlight language="bash">git push origin master</code-highlight>
         <p>That should have an output like so:</p>
-        <pre>
-Username for 'https://github.com': bigsbygates
+        <output>Username for 'https://github.com': bigsbygates
 Password for 'https://bigsbygates@github.com':
 Counting objects: 4, done.
 Compressing objects: 100% (4/4), done.
 Writing objects: 100% (4/4), 442 bytes | 0 bytes/s, done.
 Total 4 (delta 2), reused 0 (delta 0)
 To https://github.com/Bigsby/NetCore.git
-   269fa3f..cd6ea4f  master -> master
-              </pre>
+   269fa3f..cd6ea4f  master -> master</output>
         <p>Note that authentication against the repository service needs to be provided.
-            <li>
+    </li>
 </ol>
 
 <!--<a href="../index.html#aspNetCore">

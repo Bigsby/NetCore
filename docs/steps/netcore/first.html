@@ -6,24 +6,24 @@
 <ol>
     <li>
         <h4>Create a foldder</h4>
-        <pre><code class="language-bash">> mkdir FirstNetCore</code></pre>
+        <code-highlight language="bash">mkdir FirstNetCore</code-highlight>
     </li>
 
     <li>
         <h4>Move into the folder</h4>
-        <pre><code class="language-bash">> cd FirstNetCore</code></pre>
+        <code-highlight language="bash">cd FirstNetCore</code-highlight>
     </li>
 
     <li>
         <h4>Create the project</h4>
-        <pre><code class="language-bash">> dotnet new</code></pre>
+        <code-highlight language="bash">dotnet new</code-highlight>
         <p>This will produce an output like so:</p>
-        <pre>Created new C# project in ...\FirstNetCore.</pre>
+        <output>Created new C# project in ...\FirstNetCore.</output>
         <p>Looking into the folder, one finds two files were created:</p>
         <ul>
             <li>
                 <b>Programs.cs</b> - the program code that looks like this:
-                <pre class="line-numbers"><code class="language-csharp">using System;
+                <code-highlight language="csharp">using System;
 namespace ConsoleApplication
 {
     public class Program
@@ -33,11 +33,11 @@ namespace ConsoleApplication
             Console.WriteLine("Hello World!");
         }
     }
-}                 </code></pre>
+}</code-highlight>
             </li>
             <li>
                 <b>project.json</b> - the project definition that looks like this:
-                <pre><code class="language-json">{
+                <code-highlight language="json">{
   "version": "1.0.0-*",
   "buildOptions": {
     "emitEntryPoint": true
@@ -53,7 +53,7 @@ namespace ConsoleApplication
       "imports": "dnxcore50"
     }
   }
-}                 </code></pre>
+}</code-highlight>
                 <p>Notice that that is no reference to <b>Programs.cs</b> file <b>project.json</b>. This is because, in the
                     new era of Microsoft projects, it's assumed that all files in the project file's folder and its sub-folders
                     are included in the project. Files can be excluded, but that's for later on...
@@ -66,39 +66,34 @@ namespace ConsoleApplication
         <p>
             The project definition, in <b>project.json</b>> file just generated, references, in this case only, one dependency,
             that needs to be retrieved. For that:
-            <pre><code class="language-bash">> dotnet restore</code></pre>
+            <code-highlight language="bash">dotnet restore</code-highlight>
             <p>This should have an output similar to the one found <a href="firstdotnetrestoredump.txt" target="_blank">here</a>.</p>
     </li>
 
     <li>
         <h4>Build the project</h4>
         <p>This step is optional because the next step will build if build wasn't been done before. To build:</p>
-        <pre><code class="language-bash">> dotnet build</code></pre>
+        <code-highlight language="bash">dotnet build</code-highlight>
         <p>That should have an output similar to this:</p>
-        <pre>
-Project FirstNetCore (.NETCoreApp,Version=v1.0) will be compiled because expected outputs are missing    
+        <output>Project FirstNetCore (.NETCoreApp,Version=v1.0) will be compiled because expected outputs are missing    
 Compiling FirstNetCore for .NETCoreApp,Version=v1.0                                                      
                                                                                                          
 Compilation succeeded.                                                                                   
     0 Warning(s)                                                                                         
     0 Error(s)                                                                                           
                                                                                                          
-Time elapsed 00:00:01.7172506
-              </pre>
+Time elapsed 00:00:01.7172506</output>
     </li>
 
     <li>
         <h4>Run the application</h4>
-        <p>Still in the command line</p>>
-        <pre><code class="language-bash">> dotnet run</code></pre>
+        <p>Still in the command line</p>
+        <code-highlight language="bash">dotnet run</code-highlight>
         <p>That should have an output similar to this if the previous step (build) was performed:</p>
-        <pre>
-Project FisrtNetCore (.NETCoreApp,Version=v1.0) was previously compiled. Skipping compilation.
-Hello World!
-              </pre>
+        <output>Project FisrtNetCore (.NETCoreApp,Version=v1.0) was previously compiled. Skipping compilation.
+Hello World!</output>
         <p>And an output similar to this if previous step (build) was skipped:</p>
-        <pre>
-Project FirstNetCore (.NETCoreApp,Version=v1.0) will be compiled because expected outputs are missing    
+        <output>Project FirstNetCore (.NETCoreApp,Version=v1.0) will be compiled because expected outputs are missing    
 Compiling FirstNetCore for .NETCoreApp,Version=v1.0                                                      
                                                                                                          
 Compilation succeeded.                                                                                   
@@ -108,8 +103,7 @@ Compilation succeeded.
 Time elapsed 00:00:01.7172506                                                                            
                                                                                                          
                                                                                                          
-Hello World!                                                                                             
-              </pre>
+Hello World!</output>
     </li>
 </ol>
 

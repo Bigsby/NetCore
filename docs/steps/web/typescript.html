@@ -20,7 +20,7 @@
         <h3>Update <em>npm</em></h3>
         <p><em>TypeScript</em> is installed as an <em>npm</em> component and it's good practise to always update <em>npm</em>            before doing any install. To do so, run this command in the CLI:
         </p>
-        <pre><code class="language-bash">$ npm install npm -g</code></pre>
+        <code-highlight language="bash">npm install npm -g</code-highlight>
         <p>"-g" parameter means the install is to be scope globally, at least, at user level. For that reason, in Linux, there
             might be some permission issues and one should prefix the comand with "sudo".</p>
         <p>The output diplays the version and the location of the install.</p>
@@ -28,25 +28,25 @@
     <li>
         <h3>Install <em>TypeScript</em> compiler</h3>
         <p>To install <em>TypeScript</em> compiler run the following command in the CLI:</p>
-        <pre><code class="language-bash">$ npm install tsc -g</code></pre>
+        <code-highlight language="bash">npm install tsc -g</code-highlight>
         <p>The output diplays the version and the location of the install.</p>
         <p>The installation can be confirmed by running:</p>
-        <pre><code class="language-bash">$ tsc --version</code></pre>
+        <code-highlight language="bash">tsc --version</code-highlight>
         <p>That should output something like this:</p>
-        <pre>message TS6029: Version 1.5.3</pre>
+        <output>message TS6029: Version 1.5.3</output>
     </li>
     <li>
         <h3>Create folder</h3>
         <p>As before, create the folder by running:</p>
-        <pre><code class="language-bash">$ mkdir typescript</code></pre>
+        <code-highlight language="bash">mkdir typescript</code-highlight>
         <p>...and move to folder</p>
-        <pre><code class="language-bash">$ cd typescript</code></pre>
+        <code-highlight language="bash">cd typescript</code-highlight>
     </li>
     <li>
         <h3>Open Visual Studio Code</h3>
         <h3>Create folder</h3>
         <p>As before, open VS Code in current folder by running:</p>
-        <pre><code class="language-bash">$ code .</code></pre>
+        <code-highlight language="bash">code .</code-highlight>
     </li>
     <li>
         <h3>Add tsconfig.json file</h3>
@@ -54,8 +54,8 @@
         <p>You'll notice VS Code knows this file because it immediately, provides intellisense.</p>
         <img src="../images/web/06tsconfig.PNG" />
         <p>Leave it blank, for now:</p>
-        <pre><code class="language-json">{
-}</code></pre>
+        <code-highlight language="json">{
+}</code-highlight>
     </li>
     <li>
         <h3>Add .ts file</h3>
@@ -67,14 +67,14 @@
     <li>
         <h3>Add <em>TypeScript</em> code</h3>
         <p>Add the follwing content to the file:</p>
-        <pre><code class="language-typescript">class Startup{
+        <code-highlight language="typescript">class Startup{
     static main() :number{
         console.log("In TypeScript!");
         return 0;
     }    
 }
 
-Startup.main();</code></pre>
+Startup.main();</code-highlight>
     </li>
     <li>
         <h3>Build the application</h3>
@@ -88,7 +88,7 @@ Startup.main();</code></pre>
         <p>Select "TypeScript - Watch Mode". This will create a file called <em>tasks.json</em> that lives in a folder VS Code
             creates in the project root called <em>.vscode</em>. If you look at our previous projects, you'll find this folder
             with <em>tasks.json</em> file in it (and another one we'll get to next). The generated should look like this:</p>
-        <pre><code class="language-json">{
+        <code-highlight language="json">{
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
@@ -98,17 +98,17 @@ Startup.main();</code></pre>
     "showOutput": "silent",
     "isWatching": true,
     "problemMatcher": "$tsc-watch"
-}</code></pre>
+}</code-highlight>
         <p>Build again by hitting <kbd>Ctrl</kbd>+<kbd>Shit</kbd>+<kbd>B</kbd> and the output should display something like
             this:</p>
-        <pre>message TS6042: Compilation complete. Watching for file changes.</pre>
+        <output>message TS6042: Compilation complete. Watching for file changes.</output>
         <p>This message not only says the build was complete successfully but that <em>tsc</em> is watching for file changes
             and will recomplie the <em>TypeScript</em> contained in the project to <em>JavaScript</em> on every save.</p>
         <p>One other thing that you might have noticed, is that a new file appeared:</p>
         <img src="../images/web/11appjs.PNG" />
         <p><em>app.js</em> is the result of compilation of <em>app.ts</em>. By default, <em>tsc</em> creates a file eith the
             same name with ".js" extension. It's content should look like this:</p>
-        <pre><code class="language-javascript">var Startup = (function () {
+        <code-highlight language="typescript">var Startup = (function () {
     function Startup() {
     }
     Startup.main = function () {
@@ -117,7 +117,7 @@ Startup.main();</code></pre>
     };
     return Startup;
 })();
-Startup.main();</code></pre>
+Startup.main();</code-highlight>
         <p>Note that this file is generated and it's content should not be tampered because:</p>
         <ul>
             <li>Any changes will be overriden by a recompilation of the source <em>TypeScript</em> file;</li>
@@ -135,7 +135,7 @@ Startup.main();</code></pre>
         <p>As, for now, we want to run (and debug), <em>JavaScript</em>, let's choose "Node.js". This will make the app run
             under <em>NodeJS</em> runtime that is, basically, a <em>JavaSCript</em>. This will generate a
             <em>lauch.json</em> file with a content similiar or equal to this one:</p>
-        <pre><code class="language-json">{
+        <code-highlight language="json">{
     "version": "0.2.0",
     "configurations": [
         {
@@ -171,11 +171,11 @@ Startup.main();</code></pre>
             "remoteRoot": null
         }
     ]
-}</code></pre>
+}</code-highlight>
         <p>Note that <em>launch.json</em> template for <em>NodeJS</em> already points to <em>app.js</em> file as a starting
             point in "configurations.program" property</p>
         <p>Running the application again should go display the message in the output window:</p>
-        <pre>In TypeScript!</pre>
+        <output>In TypeScript!</output>
     </li>
     <li>
         <h3>Debug TypeScript</h3>
@@ -187,11 +187,11 @@ Startup.main();</code></pre>
             <li>
                 <h4>Set compiler options</h4>
                 <p>Change <em>tsconfig.json</em> to generate source mapping files by setting <em>compilerOptions.sourceMap</em>                    property to <em>true</em>. After doing so, <em>tsconfig.json</em> should look like this.</p>
-                <pre><code class="language-json">{ 
+                <code-highlight language="json">{ 
     "compilerOptions": {
         "sourceMap": true 
     }
-}</code></pre>
+}</code-highlight>
                 <p>Bulding the project, by hitting <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>, a new file appears called
                     <em>app.js.map</em> that tells the debugger to what statements in the <em>TypeScript<em> file the <em>JavaScript<em> file ones correspond too.</p>
                     </li>
@@ -199,7 +199,7 @@ Startup.main();</code></pre>
                         <h4>Set launch options</h4>
                         <p>The launcher, that invokes the debugger, also needs to be told to look for source mapping files. That is accomplished by setting <em>sourceMaps</em>                    to <em>true</em>, in <em>launch.json</em> file, on the launch configuration being used. Afther that,
                     the file should look like this:</p>
-                <pre><code class="language-json">{
+                <code-highlight language="json">{
     "version": "0.2.0",
     "configurations": [
         {
@@ -235,7 +235,7 @@ Startup.main();</code></pre>
             "remoteRoot": null
         }
     ]
-}</code></pre>
+}</code-highlight>
             </li>
 
             <li>
@@ -257,7 +257,7 @@ Startup.main();</code></pre>
         <p>Source mapping works both ways. This means that not only the debugger knows to what <em>JavaScript</em> statement
             being executed corresponds in <em>TypeScript</em> but also on launch. Since we're going <em>TypeScript</em> all
             the way, we can set our <em>TypeScript</em> file as the starting point. <em>launch.json</em> can look like this:</p>
-        <pre><code class="language-json">{
+        <code-highlight language="json">{
     "version": "0.2.0",
     "configurations": [
         {
@@ -293,7 +293,7 @@ Startup.main();</code></pre>
             "remoteRoot": null
         }
     ]
-}</code></pre>
+}</code-highlight>
     </li>
 
 

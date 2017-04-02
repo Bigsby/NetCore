@@ -8,12 +8,12 @@
     <li>
         <h4>Navigate to the project's folder</h4>
         <p>For instance, the one created <a href="#createNetCoreApplication">previously</a>.</p>
-        <pre><code class="language-bash">$ cd firstnetcore</code></pre>
+        <code-highlight language="bash">cd firstnetcore</code-highlight>
     </li>
     <li>
         <h4>Open Visual Studio Code</h4>
         <p>To open the project in Visual Studio code one only has to do this:</p>
-        <pre><code class="language-bash">$ code .</code></pre>
+        <code-highlight language="bash">code .</code-highlight>
         <p>This will open Visual Studio Code in the current folder</p>
     </li>
     <li>
@@ -67,10 +67,9 @@
         <img src="../images/vscode/10debugbutton.PNG" />
         <p>Alternatively, press F5</p>
         <p>The project will run but, in the Debug Console, a warning message is displayed stating:</p>
-        <pre>
-WARNING: Could not load symbols for 'FirstNetCore.dll'. 'c:\NetCore\FirstNetCore\bin\Debug\netcoreapp1.0\FirstNetCore.pdb' is a Windows PDB. These are not supported by the cross-platform .NET Core debugger.
+        <output>WARNING: Could not load symbols for 'FirstNetCore.dll'. 'c:\NetCore\FirstNetCore\bin\Debug\netcoreapp1.0\FirstNetCore.pdb' is a Windows PDB. These are not supported by the cross-platform .NET Core debugger.
 Hello World!
-The program 'c:\NetCore\FirstNetCore\bin\Debug\netcoreapp1.0\FirstNetCore.dll' has exited with code 0 (0x00000000).</pre>
+The program 'c:\NetCore\FirstNetCore\bin\Debug\netcoreapp1.0\FirstNetCore.dll' has exited with code 0 (0x00000000).</output>
     </li>
 
     <li>
@@ -87,8 +86,7 @@ The program 'c:\NetCore\FirstNetCore\bin\Debug\netcoreapp1.0\FirstNetCore.dll' h
                 <p>Set buildOptions.debugType to "portable" (intellisense should help)</p>
 
                 <p>"project.json" should look like this, in the end:</p>
-                <pre><code class="language-json">
-{
+                <code-highlight language="json">{
   "version": "1.0.0-*",
   "buildOptions": {
     "emitEntryPoint": true,
@@ -105,7 +103,7 @@ The program 'c:\NetCore\FirstNetCore\bin\Debug\netcoreapp1.0\FirstNetCore.dll' h
       "imports": "dnxcore50"
     }
   }
-}</code></pre>
+}</code-highlight>
             </li>
 
         </ol>

@@ -7,10 +7,9 @@
     <li>
         <h3>Install Homebrew</h3>
         <p>As instructed in <a href="https://brew.sh/">Homebrew webiste</a>, run in the terminal:</p>
-        <pre><code class="language-bash">$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
+        <code-highlight language="bash">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code-highlight>
         <p>With the following output:</p>
-        <pre>
-==> This script will install:
+        <output>==> This script will install:
 /usr/local/bin/brew
 /usr/local/Library/...
 /usr/local/share/doc/homebrew
@@ -29,11 +28,9 @@ WARNING: Improper use of the sudo command could lead to data loss
 or the deletion of important system files. Please double-check your
 typing when using sudo. Type "man sudo" for more information.
 To proceed, enter your password, or type Ctrl-C to abort.
-Password:
-            </pre>
+Password:</output>
         <p>Type in the password...and the installation continues...</p>
-        <pre>
-==> /usr/bin/sudo /usr/sbin/chown bigsby /usr/local/.
+        <output>==> /usr/bin/sudo /usr/sbin/chown bigsby /usr/local/.
 ==> /usr/bin/sudo /usr/bin/chgrp admin /usr/local/.
 ==> /usr/bin/sudo /bin/mkdir /Library/Caches/Homebrew
 ==> /usr/bin/sudo /bin/chmod g+rwx /Library/Caches/Homebrew
@@ -62,12 +59,11 @@ Run `brew help` to get started
 Further documentation: https://git.io/brew-docs
 ==> Homebrew has enabled anonymous aggregate user behaviour analytics
 Read the analytics documentation (and how to opt-out) here:
-  https://git.io/brew-analytics
-            </pre>
+  https://git.io/brew-analytics</output>
         <p>Homebrew should be installed and up-to-date at this point but..</p>
-        <pre><code class="language-bash">$ brew update</code></pre>
+        <code-highligh language="bash"t>brew update</code-highlight>
         <p>That should outpu:</p>
-        <pre>Already up-to-date</pre>
+        <output>Already up-to-date</output>
     </li>
     <li>
         <h3>Install .Net Core package</h3>
@@ -99,9 +95,9 @@ Read the analytics documentation (and how to opt-out) here:
         </ol>
         <h3>Confirm installation</h3>
         <p>Go to the Terminal and:</p>
-        <pre><code class="language-bash">$ dotnet --version</code></pre>
+        <code-highlight language="bash">dotnet --version</code-highlight>
         <p>That should output:</p>
-        <pre>1.0.0-preview1-002702</pre>
+        <output>1.0.0-preview1-002702</output>
     </li>
 
 </ol>

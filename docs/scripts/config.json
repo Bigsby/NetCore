@@ -1,19 +1,9 @@
 {
-    "config": {
-        "map": {
-            "hljs": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0"
-        },
-        "packages": {
-            "hljs": {
-                "main": "highlight.min.js"
-            }
-        }
-    },
     "appBuilderDeps": [
         "hljs"
     ],
     "styles": [
-        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/tomorrow.min.css",
+        "highlightjs",
         "styles/appStyles.css"
     ],
     "useRouting": true,
